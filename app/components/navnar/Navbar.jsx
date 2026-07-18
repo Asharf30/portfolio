@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
+import LinkButton from "../ui/LinkButton";
+import { MdDownload } from "react-icons/md";
 
 const navLinks = [
   { href: "#home", lable: "Home" },
@@ -13,6 +15,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,32 +32,40 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${
+      className={`fixed top-3 left-0 w-full z-30 transition-all duration-300 ${
         scrolled ? "bg-black/70 backdrop-blur-sm" : "bg-transparent"
       }`}
     >
-      <div className="w-[95%] lg:w-[90%] mx-auto h-16 flex items-center">
+      <div className="w-[95%] lg:w-[90%] mx-auto h-16 flex items-center gap-4">
         <Logo />
 
-        {/* Dsktop Nav  */}
-        <ul
-          className="hidden lg:flex ml-auto items-center gap-1 py-2.5 px-1
-         rounded-full bg-surface/60 backdrop-blur-xl border border-border"
-        >
-          {navLinks.map((link, index) => (
-            <li key={index}>
-              <Link
-                href={link.href}
-                className="px-4 py-2 rounded-full text-sm font-medium 
-                text-gray-300 transition-all duration-300 hover:text-primary hover:bg-surface
-                "
-              >
-                {link.lable}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        {/* Dsktop Nav  */}
+        <div className="hidden lg:flex flex-1 justify-center">
+          <ul className="flex items-center gap-1 py-2.5 px-1 rounded-full bg-surface/60 backdrop-blur-xl border border-border">
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <Link
+                  href={link.href}
+                  className="px-4 py-2 rounded-full text-sm font-medium text-gray-300 transition-all duration-300 hover:text-primary hover:bg-surface"
+                >
+                  {link.lable}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="hidden lg:block">
+          <LinkButton
+            iconPosition="left"
+            icon={MdDownload}
+            download
+            href="/Ashraf_Osama_Frontend_CV.pdf"
+            text="Download CV"
+            rounded
+          />
+        </div>
+        <button>
+          
+        </button>
       </div>
     </div>
   );

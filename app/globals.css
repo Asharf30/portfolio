@@ -9,6 +9,28 @@
   --color-text: #f0f2f5;
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(32, 178, 166, 0.35), 0 0 30px rgba(32, 178, 166, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(32, 178, 166, 0.65), 0 0 45px rgba(32, 178, 166, 0.35);
+  }
+}
+
+@keyframes shine-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
