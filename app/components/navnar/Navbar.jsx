@@ -1,0 +1,63 @@
+"use client";
+import { useEffect, useState } from "react";
+import Logo from "./Logo";
+import Link from "next/link";
+
+const navLinks = [
+  { href: "#home", lable: "Home" },
+  { href: "#about", lable: "About" },
+  { href: "#skills", lable: "Skills" },
+  { href: "#projects", lable: "Projects" },
+  { href: "#contact", lable: "Contact" },
+];
+
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div
+      className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${
+        scrolled ? "bg-black/70 backdrop-blur-sm" : "bg-transparent"
+      }`}
+    >
+      <div className="w-[95%] lg:w-[90%] mx-auto h-16 flex items-center">
+        <Logo />
+
+        {/* Dsktop Nav  */}
+        <ul
+          className="hidden lg:flex ml-auto items-center gap-1 py-2.5 px-1
+         rounded-full bg-surface/60 backdrop-blur-xl border border-border"
+        >
+          {navLinks.map((link, index) => (
+            <li key={index}>
+              <Link
+                href={link.href}
+                className="px-4 py-2 rounded-full text-sm font-medium 
+                text-gray-300 transition-all duration-300 hover:text-primary hover:bg-surface
+                "
+              >
+                {link.lable}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {/* Dsktop Nav  */}
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
