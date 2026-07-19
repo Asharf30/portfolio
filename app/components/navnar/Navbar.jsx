@@ -9,11 +9,11 @@ import { LuX } from "react-icons/lu";
 import MobileNav from "./MobileNav";
 
 export const navLinks = [
-  { href: "#home", lable: "Home" },
-  { href: "#about", lable: "About" },
-  { href: "#skills", lable: "Skills" },
-  { href: "#projects", lable: "Projects" },
-  { href: "#contact", lable: "Contact" },
+  { href: "#home", label: "Home", lable: "Home" },
+  { href: "#about", label: "About", lable: "About" },
+  { href: "#skills", label: "Skills", lable: "Skills" },
+  { href: "#projects", label: "Projects", lable: "Projects" },
+  { href: "#contact", label: "Contact", lable: "Contact" },
 ];
 
 const Navbar = () => {
@@ -68,17 +68,42 @@ const Navbar = () => {
             />
           </div>
           <button
-            className="z-50 transition cursor-pointer lg:hidden w-10 h-10 rounded-lg flex items-center justify-center
-        border border-border bg-surface/60 text-text hover:border-primary hover:text-primary
-        "
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            className={`z-50 cursor-pointer lg:hidden relative w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
+              isMobileMenuOpen
+                ? "border-primary bg-primary/15 text-primary shadow-[0_0_25px_rgba(32,178,166,0.45)] rotate-180"
+                : "border-border bg-surface/60 text-text hover:border-primary/60 hover:text-primary hover:shadow-[0_0_15px_rgba(32,178,166,0.2)] rotate-0"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <LuX /> : <LuMenu size={22} />}
+            <div className="relative w-6 h-6 flex items-center justify-center">
+              <span
+                className={`absolute transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex items-center justify-center ${
+                  isMobileMenuOpen
+                    ? "opacity-0 scale-0 -rotate-90"
+                    : "opacity-100 scale-100 rotate-0"
+                }`}
+              >
+                <LuMenu size={24} />
+              </span>
+              <span
+                className={`absolute transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex items-center justify-center ${
+                  isMobileMenuOpen
+                    ? "opacity-100 scale-100 rotate-0"
+                    : "opacity-0 scale-0 rotate-90"
+                }`}
+              >
+                <LuX size={24} />
+              </span>
+            </div>
           </button>
         </div>
       </div>
 
-<MobileNav isMobileMenuOpen={isMobileMenuOpen} />
+      <MobileNav
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
     </>
   );
 };

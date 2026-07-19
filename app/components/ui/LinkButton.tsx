@@ -9,6 +9,7 @@ interface LinkButtonProps {
   rounded?: boolean;
   download?: boolean;
   variant?: "primary" | "outline";
+  onClick?: () => void;
 }
 
 const LinkButton = ({
@@ -19,6 +20,7 @@ const LinkButton = ({
   rounded,
   download = false,
   variant = "primary",
+  onClick,
 }: LinkButtonProps) => {
   const baseStyles = `
     relative
@@ -49,28 +51,46 @@ const LinkButton = ({
       />
 
       {/* Main Link Button */}
-      <Link
-        className={`${baseStyles} ${variants[variant]}`}
-        href={href}
-        download={download}
-      >
+      {download ? (
+        <a
+          className={`${baseStyles} ${variants[variant]}`}
+          href={href}
+          download
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onClick}
+        >
+          {Icon && iconPosition === "left" && (
+            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:-translate-x-1 group-hover:scale-110" />
+          )}
 
+          <span className="z-10 relative tracking-wide transition-colors duration-300">
+            {text}
+          </span>
 
-        {/* Left Icon with Hover Animation */}
-        {Icon && iconPosition === "left" && (
-          <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:-translate-x-1 group-hover:scale-110" />
-        )}
+          {Icon && iconPosition === "right" && (
+            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110" />
+          )}
+        </a>
+      ) : (
+        <Link
+          className={`${baseStyles} ${variants[variant]}`}
+          href={href}
+          onClick={onClick}
+        >
+          {Icon && iconPosition === "left" && (
+            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:-translate-x-1 group-hover:scale-110" />
+          )}
 
-        {/* Button Text */}
-        <span className="z-10 relative tracking-wide transition-colors duration-300">
-          {text}
-        </span>
+          <span className="z-10 relative tracking-wide transition-colors duration-300">
+            {text}
+          </span>
 
-        {/* Right Icon with Hover Animation */}
-        {Icon && iconPosition === "right" && (
-          <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110" />
-        )}
-      </Link>
+          {Icon && iconPosition === "right" && (
+            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110" />
+          )}
+        </Link>
+      )}
     </div>
   );
 };
