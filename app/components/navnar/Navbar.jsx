@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Logo from "./Logo";
 import Link from "next/link";
 import LinkButton from "../ui/LinkButton";
@@ -18,29 +18,72 @@ export const navLinks = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
   useEffect(() => {
+    const SCROLL_THRESHOLD = 8; // px delta before reacting
+
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      if (ticking.current) return;
+      ticking.current = true;
+
+      requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+
+        // Background transition threshold
+        setScrolled(currentY > 50);
+
+        if (currentY < 60) {
+          // Always visible near the top
+          setHidden(false);
+        } else {
+          const delta = currentY - lastScrollY.current;
+          if (Math.abs(delta) > SCROLL_THRESHOLD) {
+            if (delta > 0) {
+              setHidden(true);  // scrolling DOWN → hide
+            } else {
+              setHidden(false); // scrolling UP   → show
+            }
+          }
+        }
+
+        lastScrollY.current = currentY;
+        ticking.current = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
+      {/*
+        Outer bar: full-width, carries glass bg + border + hardware-accelerated
+        transform/opacity animation only — no layout properties animated.
+      */}
       <div
-        className={`fixed top-3 left-0 w-full z-60 transition-all duration-300 ${
-          scrolled ? "bg-black/70 backdrop-blur-sm" : "bg-transparent"
-        }`}
+        className={`
+          fixed top-0 left-0 w-full z-60
+          ${scrolled
+            ? "bg-background/80 backdrop-blur-2xl border-b border-border/30 shadow-[0_1px_0_rgba(255,255,255,0.04),0_4px_24px_rgba(0,0,0,0.35)]"
+            : "bg-background/22 backdrop-blur-md border-b border-transparent"
+          }
+        `}
+        style={{
+          transform: hidden && !isMobileMenuOpen ? "translateY(-100%)" : "translateY(0)",
+          opacity: hidden && !isMobileMenuOpen ? 0 : 1,
+          transition:
+            "transform 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 280ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms ease, backdrop-filter 300ms ease",
+          willChange: "transform, opacity",
+        }}
       >
-        <div className="w-[95%] lg:w-[90%] mx-auto h-16 flex items-center justify-between gap-4">
+        {/* Inner row — constrained to max-w-7xl, aligns with Hero content */}
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           <Logo />
 
           <div className="hidden lg:flex flex-1 justify-center">
@@ -57,6 +100,7 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+
           <div className="hidden lg:block">
             <LinkButton
               iconPosition="left"
@@ -67,6 +111,7 @@ const Navbar = () => {
               rounded
             />
           </div>
+
           <button
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className={`z-50 cursor-pointer lg:hidden relative w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
