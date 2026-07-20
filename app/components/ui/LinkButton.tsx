@@ -8,7 +8,7 @@ interface LinkButtonProps {
   iconPosition?: "left" | "right";
   rounded?: boolean;
   download?: boolean;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "outline-subtle" | "glass";
   onClick?: () => void;
 }
 
@@ -30,24 +30,57 @@ const LinkButton = ({
     inline-flex items-center justify-center gap-2.5
     overflow-hidden text-text
     border
-    transition-all duration-500 ease-out
-    transform group-hover:-translate-y-1 group-active:translate-y-0 group-active:scale-[0.98]
+    transition-all duration-300 ease-out
+    transform group-hover:-translate-y-0.5 group-active:translate-y-0 group-active:scale-[0.98]
   `;
 
   const variants = {
-    primary: `bg-gradient-to-r from-primary via-[#26c5b8] to-primary text-background border-primary/40 shadow-[0_0_20px_rgba(32,178,166,0.35)] group-hover:shadow-[0_0_35px_rgba(32,178,166,0.7)] animate-pulse-glow`,
-    outline: `bg-background/80 backdrop-blur-md text-text border-border group-hover:text-primary group-hover:border-primary group-hover:bg-primary/10 group-hover:shadow-[0_0_25px_rgba(32,178,166,0.5)]`,
+    primary: `bg-gradient-to-r from-primary via-[#26c5b8] to-primary text-background border-primary/40 shadow-[0_0_15px_rgba(32,178,166,0.3)] group-hover:shadow-[0_0_35px_rgba(32,178,166,0.7)]`,
+    outline: `bg-background/80 backdrop-blur-md text-text border-border group-hover:text-primary group-hover:border-primary group-hover:bg-primary/10`,
+    "outline-subtle": `
+  bg-background/80
+  backdrop-blur-md
+  text-text
+  border-border/60
+  shadow-none
+  transition-all
+  duration-300
+  ease-out
+
+  group-hover:border-primary/70
+  group-hover:bg-primary/[0.04]
+  group-hover:text-primary
+  group-hover:shadow-[0_0_10px_rgba(32,178,166,0.15)]
+`,
+    glass: `
+bg-background/80
+backdrop-blur-md
+border-primary/40
+text-text
+shadow-none
+
+transition-all
+duration-300
+
+group-hover:border-primary/80
+group-hover:bg-primary/[0.05]
+group-hover:shadow-[0_0_8px_rgba(32,178,166,0.12)]
+`,
   };
 
   return (
     <div className="relative inline-flex group">
       {/* Outer Ambient Glow Ring / Halo */}
       <span
-        className={`absolute -inset-1 ${
+        className={`absolute -inset-0.5 ${
           rounded ? "rounded-full" : "rounded-xl"
-        } bg-gradient-to-r from-primary via-primary/80 to-primary opacity-40 blur-md transition-all duration-500 ease-out group-hover:opacity-100 group-hover:blur-lg group-hover:scale-105 ${
-          variant === "primary" ? "animate-pulse-glow" : "opacity-0 group-hover:opacity-75"
-        }`}
+        } bg-primary
+  opacity-0
+  blur-sm
+  transition-all
+  duration-300
+  group-hover:opacity-15
+  ${variant === "primary" ? "group-hover:opacity-20" : "pointer-events-none"}`}
       />
 
       {/* Main Link Button */}
