@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import DotGrid from "../components/Hero/BgGlow";
 import LinkButton from "../components/ui/LinkButton";
 import { LuArrowRight } from "react-icons/lu";
@@ -7,18 +7,21 @@ import profile from "../../public/images/profile.jpg";
 import Image from "next/image";
 
 const Hero = () => {
-  const containerRef = useRef(null);
-  const [glowPos, setGlowPos] = useState({ x: 0, y: 0 });
-  const [glowVisible, setGlowVisible] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const imageGlowRef = useRef(null);
 
-  const handleMouseMove = (e) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setGlowPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+  const handleProfilePointerMove = (event) => {
+    const target = imageGlowRef.current;
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    target.style.setProperty(
+      "--profile-glow-x",
+      `${event.clientX - rect.left}px`
+    );
+    target.style.setProperty(
+      "--profile-glow-y",
+      `${event.clientY - rect.top}px`
+    );
   };
 
   return (
@@ -93,82 +96,29 @@ const Hero = () => {
 
         {/* ── Profile image — below buttons on mobile, right column on desktop ── */}
         <div className="flex justify-center lg:justify-end mt-14 sm:mt-16 md:mt-18 lg:mt-0">
-
-          {/* Floating wrapper — 6s ease-in-out, 5px travel */}
           <div className="profile-float">
-
-            {/* Size container */}
             <div
-              className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80
-              lg:w-[340px] lg:h-[340px] xl:w-[420px] xl:h-[420px]"
+              className="profile-frame relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80
+                lg:w-[340px] lg:h-[340px] xl:w-[420px] xl:h-[420px]"
             >
+              <div className="profile-back-glow glow-pulse-anim" aria-hidden="true" />
+              <div className="profile-gradient-ring ring-rotate" aria-hidden="true" />
 
-              {/* Gradient ring — 1px effective border, 18s rotation, pauses on hover */}
-              {/*   outer:  conic-gradient rotates                                    */}
-              {/*   inner:  solid background clips to 1px rim                         */}
               <div
-                className={`absolute -inset-[1px] rounded-full ${hovered ? "ring-rotate-paused" : "ring-rotate"}`}
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, rgba(32,178,166,0.55), transparent 45%, rgba(32,178,166,0.55) 100%)",
-                  opacity: 0.55,
-                }}
-                aria-hidden="true"
-              />
-              {/* Clip mask — narrows visible ring to 1px */}
-              <div
-                className="absolute inset-[1px] rounded-full"
-                style={{ backgroundColor: "var(--color-surface)" }}
-                aria-hidden="true"
-              />
-
-              {/* Background glow pulse — breathing opacity, stays behind image */}
-              <div
-                className="glow-pulse-anim absolute inset-0 rounded-full blur-3xl"
-                style={{ backgroundColor: "rgba(32,178,166,0.20)" }}
-                aria-hidden="true"
-              />
-
-              {/* Image container — mouse tracking + overflow clip */}
-              <div
-                ref={containerRef}
-                className="absolute inset-0 rounded-full overflow-hidden z-10 bg-surface/80 backdrop-blur-md border border-border"
-                onMouseMove={handleMouseMove}
-                onMouseEnter={() => {
-                  setGlowVisible(true);
-                  setHovered(true);
-                }}
-                onMouseLeave={() => {
-                  setGlowVisible(false);
-                  setHovered(false);
-                }}
+                ref={imageGlowRef}
+                className="profile-image-shell"
+                onPointerMove={handleProfilePointerMove}
               >
-                {/* Profile image — scales 1.025× on hover */}
                 <Image
                   src={profile}
                   fill
                   alt="Profile photo of Ashraf Osama"
-                  className="object-cover rounded-full"
-                  style={{
-                    transform: hovered ? "scale(1.025)" : "scale(1)",
-                    transition: "transform 0.5s ease",
-                    willChange: "transform",
-                  }}
-                  priority
+                  className="profile-image object-cover rounded-full"
+                  sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, (max-width: 1024px) 320px, (max-width: 1280px) 340px, 420px"
+                  preload
                 />
-
-                {/* Mouse-follow radial glow — fades in/out on enter/leave */}
-                <div
-                  className="absolute inset-0 rounded-full pointer-events-none"
-                  aria-hidden="true"
-                  style={{
-                    background: `radial-gradient(circle 110px at ${glowPos.x}px ${glowPos.y}px, rgba(32,178,166,0.14), transparent 70%)`,
-                    opacity: glowVisible ? 1 : 0,
-                    transition: "opacity 0.4s ease",
-                  }}
-                />
+                <div className="profile-cursor-glow" aria-hidden="true" />
               </div>
-
             </div>
           </div>
         </div>

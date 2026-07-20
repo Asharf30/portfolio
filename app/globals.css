@@ -33,8 +33,14 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% { opacity: 0.18; }
-  50%       { opacity: 0.30; }
+  0%, 100% {
+    opacity: 0.18;
+    filter: blur(34px);
+  }
+  50% {
+    opacity: 0.28;
+    filter: blur(42px);
+  }
 }
 
 .profile-float {
@@ -46,12 +52,6 @@
   animation: ring-rotate 18s linear infinite;
 }
 
-/* Hover: keep position, just pause rotation */
-.ring-rotate-paused {
-  animation: ring-rotate 18s linear infinite;
-  animation-play-state: paused;
-}
-
 .glow-pulse-anim {
   animation: glow-pulse 6s ease-in-out infinite;
 }
@@ -59,13 +59,120 @@
 @media (prefers-reduced-motion: reduce) {
   .profile-float,
   .ring-rotate,
-  .ring-rotate-paused,
   .glow-pulse-anim {
     animation: none !important;
   }
 }
 
 
+
+.profile-float,
+.ring-rotate,
+.glow-pulse-anim {
+  will-change: transform;
+}
+
+.glow-pulse-anim {
+  will-change: opacity, filter;
+}
+
+.profile-frame {
+  isolation: isolate;
+  border-radius: 9999px;
+}
+
+.profile-back-glow {
+  position: absolute;
+  inset: -8%;
+  z-index: -2;
+  border-radius: inherit;
+  background: rgba(32, 178, 166, 0.2);
+}
+
+.profile-gradient-ring {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(34, 211, 238, 0.88),
+      rgba(20, 184, 166, 0.92) 28%,
+      rgba(52, 211, 153, 0.86) 52%,
+      rgba(34, 211, 238, 0.34) 72%,
+      rgba(20, 184, 166, 0.88) 100%
+    );
+  box-shadow: 0 0 18px rgba(20, 184, 166, 0.18);
+  opacity: 0.9;
+  transition: opacity 500ms ease;
+}
+
+.profile-image-shell {
+  --profile-glow-x: 50%;
+  --profile-glow-y: 50%;
+
+  position: absolute;
+  inset: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(240, 242, 245, 0.08);
+  border-radius: inherit;
+  background: var(--color-surface);
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.32),
+    0 0 24px rgba(32, 178, 166, 0.08);
+}
+
+.profile-frame:hover .profile-gradient-ring,
+.profile-frame:focus-within .profile-gradient-ring {
+  opacity: 0.98;
+}
+
+.profile-image {
+  transition: transform 500ms ease;
+  will-change: transform;
+}
+
+.profile-image-shell:hover .profile-image,
+.profile-image-shell:focus-within .profile-image {
+  transform: scale(1.025);
+}
+
+.profile-cursor-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle 120px at var(--profile-glow-x) var(--profile-glow-y),
+      rgba(32, 178, 166, 0.16),
+      rgba(240, 242, 245, 0.05) 34%,
+      transparent 70%
+    );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+  will-change: opacity;
+}
+
+.profile-image-shell:hover .profile-cursor-glow,
+.profile-image-shell:focus-within .profile-cursor-glow {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-image-shell,
+  .profile-gradient-ring,
+  .profile-image,
+  .profile-cursor-glow {
+    transition: none !important;
+  }
+
+  .profile-image-shell:hover .profile-image,
+  .profile-image-shell:focus-within .profile-image {
+    transform: none;
+  }
+}
 
 body {
   background-color: var(--color-background);

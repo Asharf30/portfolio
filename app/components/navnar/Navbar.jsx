@@ -68,7 +68,7 @@ const Navbar = () => {
       */}
       <div
         className={`
-          fixed top-0 left-0 w-full z-60
+          fixed top-2 left-0 w-full z-60
           ${scrolled
             ? "bg-background/80 backdrop-blur-2xl border-b border-border/30 shadow-[0_1px_0_rgba(255,255,255,0.04),0_4px_24px_rgba(0,0,0,0.35)]"
             : "bg-background/22 backdrop-blur-md border-b border-transparent"
