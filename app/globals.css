@@ -20,6 +20,51 @@
   }
 }
 
+/* ── Profile image animations ── */
+
+@keyframes profile-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes ring-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.18; }
+  50%       { opacity: 0.30; }
+}
+
+.profile-float {
+  animation: profile-float 6s ease-in-out infinite;
+}
+
+/* 18s = 3× the float period — stays perceptually calm and in sync */
+.ring-rotate {
+  animation: ring-rotate 18s linear infinite;
+}
+
+/* Hover: keep position, just pause rotation */
+.ring-rotate-paused {
+  animation: ring-rotate 18s linear infinite;
+  animation-play-state: paused;
+}
+
+.glow-pulse-anim {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-float,
+  .ring-rotate,
+  .ring-rotate-paused,
+  .glow-pulse-anim {
+    animation: none !important;
+  }
+}
+
 
 
 body {
