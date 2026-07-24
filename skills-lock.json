@@ -24,6 +24,12 @@
       "sourceType": "github",
       "skillPath": "skills/caveman-help/SKILL.md",
       "computedHash": "4dba39eea07a050108d47940b39600bc8f45489201ecff0ccf03627180fd8e50"
+    },
+    "gsap-animated-frontend": {
+      "source": "rakymat-plugins/gsap-animated-frontend",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "5c922579887158d2b49e40c74bc2e71ae5fdaedc8409df83fecb32016b0b1aeb"
     }
   }
 }
