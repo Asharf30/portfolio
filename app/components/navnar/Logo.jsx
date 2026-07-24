@@ -1,16 +1,20 @@
 "use client";
 import { LuCodeXml } from "react-icons/lu";
-
-const scrollToTop = () => {
-  if (window.scrollY === 0) return;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+import { useRouter } from "next/navigation";
 
 const Logo = () => {
+  const router = useRouter();
+
+  const handleHomeNavigation = () => {
+    router.replace("/", { scroll: false });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <button
-      onClick={scrollToTop}
-      aria-label="Scroll to top"
+      type="button"
+      onClick={handleHomeNavigation}
+      aria-label="Navigate to homepage"
       className="flex items-center gap-3 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded-full"
     >
       <div
