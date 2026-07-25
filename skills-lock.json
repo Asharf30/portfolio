@@ -25,6 +25,12 @@
       "skillPath": "skills/caveman-help/SKILL.md",
       "computedHash": "4dba39eea07a050108d47940b39600bc8f45489201ecff0ccf03627180fd8e50"
     },
+    "clean-code-guard": {
+      "source": "amElnagdy/guard-skills",
+      "sourceType": "github",
+      "skillPath": "skills/clean-code-guard/SKILL.md",
+      "computedHash": "4dc02501857f29bb42d740b1d01124a99a1621762562750ef5bc00d6229715e2"
+    },
     "gsap-animated-frontend": {
       "source": "rakymat-plugins/gsap-animated-frontend",
       "sourceType": "github",

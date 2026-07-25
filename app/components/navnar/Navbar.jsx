@@ -70,16 +70,17 @@ const Navbar = () => {
         className={`
           fixed top-2 left-0 w-full z-60
           ${scrolled
-            ? "bg-background/80 backdrop-blur-2xl border-b border-border/30 shadow-[0_1px_0_rgba(255,255,255,0.04),0_4px_24px_rgba(0,0,0,0.35)]"
-            : "bg-background/22 backdrop-blur-md border-b border-transparent"
+            ? "bg-[rgba(15,20,24,0.35)] backdrop-blur-[20px] backdrop-saturate-150 border-b border-[rgba(255,255,255,0.06)] shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+            : "bg-transparent border-b border-transparent"
           }
         `}
         style={{
           transform: hidden && !isMobileMenuOpen ? "translateY(-100%)" : "translateY(0)",
           opacity: hidden && !isMobileMenuOpen ? 0 : 1,
+          filter: hidden && !isMobileMenuOpen ? "blur(4px)" : "blur(0px)",
           transition:
-            "transform 280ms cubic-bezier(0.4, 0, 0.2, 1), opacity 280ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms ease, backdrop-filter 300ms ease",
-          willChange: "transform, opacity",
+            "transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms cubic-bezier(0.16, 1, 0.3, 1), background-color 400ms ease, backdrop-filter 400ms ease",
+          willChange: "transform, opacity, filter",
         }}
       >
         {/* Inner row — constrained to max-w-7xl, aligns with Hero content */}

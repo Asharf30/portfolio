@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${poppins.variable} h-full antialiased`}>
+    <html className={`${poppins.variable} h-full antialiased scroll-smooth`}>
       <body className="min-h-full flex flex-col">
         <Navbar />
 

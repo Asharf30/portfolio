@@ -177,6 +177,11 @@
   }
 }
 
+html {
+  scroll-behavior: smooth !important;
+  scroll-padding-top: 5rem;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
