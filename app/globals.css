@@ -78,22 +78,23 @@
 
 .profile-frame {
   isolation: isolate;
-  border-radius: 9999px;
+  border-radius: 50%;
 }
 
 .profile-back-glow {
   position: absolute;
   inset: -8%;
   z-index: -2;
-  border-radius: inherit;
+  border-radius: 50%;
   background: rgba(32, 178, 166, 0.2);
 }
 
 .profile-gradient-ring {
   position: absolute;
-  inset: 0;
+  inset: -3px;
   z-index: -1;
-  border-radius: inherit;
+  border-radius: 50%;
+  padding: 2px;
   background:
     conic-gradient(
       from 0deg,
@@ -104,9 +105,9 @@
       rgba(34, 211, 238, 0.18) 46%,
       rgba(20, 184, 166, 0.08) 100%
     );
-  box-shadow:
-    0 0 14px rgba(34, 211, 238, 0.16),
-    0 0 24px rgba(20, 184, 166, 0.14);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   opacity: 0.94;
   transition: opacity 500ms ease;
 }
@@ -118,12 +119,7 @@
   position: absolute;
   inset: 3px;
   overflow: hidden;
-  border: 1px solid rgba(240, 242, 245, 0.08);
-  border-radius: inherit;
-  background: var(--color-surface);
-  box-shadow:
-    0 22px 70px rgba(0, 0, 0, 0.32),
-    0 0 24px rgba(32, 178, 166, 0.08);
+  border-radius: 50%;
 }
 
 .profile-frame:hover .profile-gradient-ring,
