@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "agy-delegate": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "skillPath": "skills/agy-delegate/SKILL.md",
+      "computedHash": "dea00d1e6ed2d64351344af9d463524912fbb2fec612042e6e6ddda6172141e2"
+    },
     "caveman": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
@@ -31,11 +37,23 @@
       "skillPath": "skills/clean-code-guard/SKILL.md",
       "computedHash": "4dc02501857f29bb42d740b1d01124a99a1621762562750ef5bc00d6229715e2"
     },
+    "codex-delegate": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "skillPath": "skills/codex-delegate/SKILL.md",
+      "computedHash": "e0435b0ebf580db1a02015543b9d6dc7edce13fb8947e414faf4758f8b151efd"
+    },
     "gsap-animated-frontend": {
       "source": "rakymat-plugins/gsap-animated-frontend",
       "sourceType": "github",
       "skillPath": "SKILL.md",
       "computedHash": "5c922579887158d2b49e40c74bc2e71ae5fdaedc8409df83fecb32016b0b1aeb"
+    },
+    "opencode-delegate": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "skillPath": "skills/opencode-delegate/SKILL.md",
+      "computedHash": "556b9ae08f982fc3323c32ff37e6d63775eef21a37d932c7170f051a28a9cbe3"
     }
   }
 }

@@ -115,7 +115,7 @@ const Hero = () => {
                   alt="Profile photo of Ashraf Osama"
                   className="profile-image object-cover rounded-full"
                   sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, (max-width: 1024px) 320px, (max-width: 1280px) 340px, 420px"
-                  preload
+                  priority
                 />
                 <div className="profile-cursor-glow" aria-hidden="true" />
               </div>

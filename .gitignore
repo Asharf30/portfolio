@@ -39,3 +39,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI / AGY generated files
+.gsap/
+.agents/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Reports & plans
+animation-plan.md
+animation-spec.md
+audit-report.md
