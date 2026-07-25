@@ -9,8 +9,6 @@
   --color-text: #f0f2f5;
 }
 
-
-
 @keyframes shine-sweep {
   0% {
     transform: translateX(-150%) skewX(-20deg);
@@ -23,17 +21,27 @@
 /* ── Profile image animations ── */
 
 @keyframes profile-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 @keyframes ring-rotate {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.18;
     filter: blur(34px);
   }
@@ -64,8 +72,6 @@
   }
 }
 
-
-
 .profile-float,
 .ring-rotate,
 .glow-pulse-anim {
@@ -95,17 +101,18 @@
   z-index: -1;
   border-radius: 50%;
   padding: 2px;
-  background:
-    conic-gradient(
-      from 0deg,
-      rgba(34, 211, 238, 0.18) 0%,
-      rgba(34, 211, 238, 0.9) 8%,
-      rgba(20, 184, 166, 0.96) 22%,
-      rgba(52, 211, 153, 0.88) 36%,
-      rgba(34, 211, 238, 0.18) 46%,
-      rgba(20, 184, 166, 0.08) 100%
-    );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  background: conic-gradient(
+    from 0deg,
+    rgba(34, 211, 238, 0.18) 0%,
+    rgba(34, 211, 238, 0.9) 8%,
+    rgba(20, 184, 166, 0.96) 22%,
+    rgba(52, 211, 153, 0.88) 36%,
+    rgba(34, 211, 238, 0.18) 46%,
+    rgba(20, 184, 166, 0.08) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.94;
@@ -141,13 +148,12 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background:
-    radial-gradient(
-      circle 120px at var(--profile-glow-x) var(--profile-glow-y),
-      rgba(32, 178, 166, 0.16),
-      rgba(240, 242, 245, 0.05) 34%,
-      transparent 70%
-    );
+  background: radial-gradient(
+    circle 120px at var(--profile-glow-x) var(--profile-glow-y),
+    rgba(32, 178, 166, 0.16),
+    rgba(240, 242, 245, 0.05) 34%,
+    transparent 70%
+  );
   opacity: 0;
   pointer-events: none;
   transition: opacity 420ms ease;
@@ -204,4 +210,170 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: auto;
+}
+/* ── About image animations ── */
+
+
+@property --about-ring-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes about-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes about-ring-rotate {
+  from {
+    --about-ring-angle: 0deg;
+  }
+  to {
+    --about-ring-angle: 360deg;
+  }
+}
+
+@keyframes about-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.18;
+    filter: blur(34px);
+  }
+  50% {
+    opacity: 0.28;
+    filter: blur(42px);
+  }
+}
+
+.about-float {
+  animation: about-float 6s ease-in-out infinite;
+}
+
+.about-ring-rotate {
+  animation: about-ring-rotate 12s linear infinite;
+}
+
+.about-glow-pulse-anim {
+  animation: about-glow-pulse 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-float,
+  .about-ring-rotate,
+  .about-glow-pulse-anim {
+    animation: none !important;
+  }
+}
+
+.about-float,
+.about-glow-pulse-anim {
+  will-change: transform;
+}
+
+.about-glow-pulse-anim {
+  will-change: opacity, filter;
+}
+
+.about-image-frame {
+  isolation: isolate;
+  border-radius: 1rem;
+}
+
+.about-back-glow {
+  position: absolute;
+  inset: -8%;
+  z-index: -2;
+  border-radius: 1rem;
+  background: rgba(32, 178, 166, 0.2);
+}
+
+.about-gradient-ring {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--about-ring-angle),
+    rgba(34, 211, 238, 0.18) 0%,
+    rgba(34, 211, 238, 0.9) 8%,
+    rgba(20, 184, 166, 0.96) 22%,
+    rgba(52, 211, 153, 0.88) 36%,
+    rgba(34, 211, 238, 0.18) 46%,
+    rgba(20, 184, 166, 0.08) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.94;
+  transition: opacity 500ms ease;
+}
+
+.about-image-shell {
+  --about-glow-x: 50%;
+  --about-glow-y: 50%;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.about-image-frame:hover .about-gradient-ring,
+.about-image-frame:focus-within .about-gradient-ring {
+  opacity: 0.98;
+}
+
+.about-image {
+  transition: transform 500ms ease;
+  will-change: transform;
+}
+
+.about-image-shell:hover .about-image,
+.about-image-shell:focus-within .about-image {
+  transform: scale(1.025);
+}
+
+.about-cursor-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 120px at var(--about-glow-x) var(--about-glow-y),
+    rgba(32, 178, 166, 0.16),
+    rgba(240, 242, 245, 0.05) 34%,
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+  will-change: opacity;
+}
+
+.about-image-shell:hover .about-cursor-glow,
+.about-image-shell:focus-within .about-cursor-glow {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-image-shell,
+  .about-gradient-ring,
+  .about-image,
+  .about-cursor-glow {
+    transition: none !important;
+  }
+
+  .about-image-shell:hover .about-image,
+  .about-image-shell:focus-within .about-image {
+    transform: none;
+  }
 }
