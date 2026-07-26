@@ -67,14 +67,15 @@
 
 /* ── Profile image animations ── */
 
-@keyframes profile-float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+@keyframes about-ambient-drift {
+  0% { transform: translate(10%, -10%); }
+  50% { transform: translate(-10%, 10%); }
+  100% { transform: translate(10%, -10%); }
+}
+
+.animate-ambient-drift {
+  animation: about-ambient-drift 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes ring-rotate {
@@ -313,7 +314,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .about-float,
   .about-ring-rotate,
-  .about-glow-pulse-anim {
+  .about-glow-pulse-anim,
+  .animate-ambient-drift {
     animation: none !important;
   }
 }

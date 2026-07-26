@@ -1,11 +1,7 @@
 "use client";
 import { useRef } from "react";
-
-import Image from "next/image";
-import about from "../../public/images/about.png";
-import { LuCode } from "react-icons/lu";
-import { LuDatabase } from "react-icons/lu";
-import { LuRocket } from "react-icons/lu";
+import DotGrid from "../components/Hero/BgGlow"
+import { LuCode, LuDatabase, LuRocket } from "react-icons/lu";
 
 const About = () => {
   const aboutImageGlowRef = useRef(null);
@@ -29,7 +25,7 @@ const About = () => {
         blur-3xl bg-primary/10"
       />
       <div className="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Image */}
+        {/* Image / Visual */}
         <div className="flex justify-center lg:justify-start">
           <div className="about-float">
             <div className="about-image-frame relative w-85 h-85 md:w-120 md:h-120">
@@ -42,18 +38,38 @@ const About = () => {
                 aria-hidden="true"
               />
 
-              <div
-                ref={aboutImageGlowRef}
-                className="about-image-shell"
-                onPointerMove={handleAboutPointerMove}
-              >
-                <Image
-                  src={about}
-                  alt="About"
-                  fill
-                  className="about-image object-cover rounded-2xl"
-                />
-                <div className="about-cursor-glow" aria-hidden="true" />
+              <div className="w-85 h-85 relative md:w-120 md:h-120 rounded-2xl bg-surface/80 backdrop-blur-md border border-border flex items-center justify-center">
+                <div className="inset-0 absolute rounded-2xl bg-primary/10 blur-2xl" />
+                <div
+                  ref={aboutImageGlowRef}
+                  className="about-image-shell flex items-center justify-center"
+                  onPointerMove={handleAboutPointerMove}
+                >
+                  {/* Abstract Decorative Visual (DotGrid) */}
+                  <div className="w-[85%] h-[85%] relative rounded-2xl overflow-hidden bg-surface flex items-center justify-center z-10">
+                    {/* Ambient Glow */}
+                    <div className="absolute inset-0 bg-primary/15 blur-2xl rounded-full animate-ambient-drift" />
+
+                    {/* Dot Grid Layer */}
+                    <div className="inset-0 absolute opacity-60">
+                      <DotGrid
+                        dotSize={2}
+                        gap={10}
+                        baseColor="#2F293A"
+                        activeColor="#20b2a6"
+                        proximity={80}
+                        shockRadius={150}
+                        shockStrength={4}
+                        resistance={600}
+                        returnDuration={1}
+                      />
+                    </div>
+
+                    {/* Glass Overlay for Depth */}
+                    <div className="absolute inset-0 bg-surface/20 backdrop-blur-[2px] border border-border/30 rounded-2xl pointer-events-none" />
+                  </div>
+                  <div className="about-cursor-glow" aria-hidden="true" />
+                </div>
               </div>
             </div>
           </div>
@@ -81,17 +97,18 @@ const About = () => {
             contribute to real products.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 ">
-            <div className="p-4 rounded-xl bg-surface border border-border text-center">
-              <LuCode className="mx-auto mb-2 text-primary w-6 h-6 " />
-              <p className="text-text text-sm"> Clean Code</p>
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+              <LuCode className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
+              <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Clean Code</p>
             </div>
-            <div className="p-4 rounded-xl bg-surface border border-border text-center">
-              <LuDatabase className="mx-auto mb-2 text-primary w-6 h-6 " />
-              <p className="text-text text-sm"> Responsive Design</p>
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+              <LuDatabase className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
+              <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Responsive Design</p>
             </div>
-            <div className="p-4 rounded-xl bg-surface border border-border text-center">
-              <LuRocket className="mx-auto mb-2 text-primary w-6 h-6 " />
-              <p className="text-text text-sm"> Fast Performance</p>
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+              <LuRocket className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Fast Performance</p>
+{/* rimary w-6 h-6 " /> */}
             </div>
           </div>
         </div>
