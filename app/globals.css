@@ -18,6 +18,53 @@
   }
 }
 
+/* ── Animated Badge ── */
+@keyframes text-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.animated-badge {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(32, 178, 166, 0.25);
+  box-shadow: 0 0 15px rgba(32, 178, 166, 0.15);
+}
+
+.animated-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  animation: shine-sweep 3s ease-in-out infinite;
+}
+
+.animated-badge .badge-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    #ffffff 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: text-shimmer 3s linear infinite;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 /* ── Profile image animations ── */
 
 @keyframes profile-float {

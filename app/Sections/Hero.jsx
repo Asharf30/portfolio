@@ -55,11 +55,11 @@ const Hero = () => {
         {/* ── Text + Buttons — always first in DOM (mobile + desktop) ── */}
         <div className="flex flex-col gap-6 sm:gap-7 text-center lg:text-left items-center lg:items-start">
           <span
-            className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary
-            text-sm border border-border"
+            className="animated-badge inline-block py-1.5 px-4 rounded-full bg-primary/10 text-sm"
           >
-            {" "}
-            Frontend Developer • React &amp; Next.js
+            <span className="badge-text">
+              Frontend Developer • React &amp; Next.js
+            </span>
           </span>
 
           <h1

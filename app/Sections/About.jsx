@@ -60,8 +60,8 @@ const About = () => {
         </div>
         {/* Text */}
         <div className="space-y-6">
-          <span className="text-sm text-primary bg-primary/10 px-4 py-1.5 rounded-e-full border border-border inline-block">
-            About Me
+          <span className="animated-badge text-sm bg-primary/10 px-4 py-1.5 rounded-e-full inline-block">
+            <span className="badge-text">About Me</span>
           </span>
           <h2 className="text-3xl font-bold text-text leading-tight">
             I build scalable and user-focused web applications{" "}
