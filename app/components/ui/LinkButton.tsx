@@ -70,6 +70,14 @@ group-hover:shadow-[0_0_8px_rgba(32,178,166,0.12)]
 
   return (
     <div className="relative inline-flex group">
+      {/* Rotating gradient border */}
+      <span
+        className={`link-btn-border absolute inset-0 pointer-events-none ${
+          rounded ? "rounded-full" : "rounded-xl"
+        }`}
+        aria-hidden="true"
+      />
+
       {/* Outer Ambient Glow Ring / Halo */}
       <span
         className={`absolute -inset-0.5 ${

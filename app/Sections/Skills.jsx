@@ -11,7 +11,6 @@ import {
   SiRedux,
   SiAxios,
   SiGit,
-  SiGithub,
 } from "react-icons/si";
 import {
   LuNetwork,
@@ -32,7 +31,7 @@ const skills = [
   { name: "Framer Motion", icons: [SiFramer] },
   { name: "Redux Toolkit", icons: [SiRedux] },
   { name: "Axios", icons: [SiAxios] },
-  { name: "Git & Github", icons: [SiGit, SiGithub] },
+  { name: "Git", icons: [SiGit] },
   { name: "REST APIs", icons: [LuNetwork] },
   { name: "SEO Best Practices", icons: [LuSearchCheck] },
   { name: "Web Performance Optimization", icons: [LuGauge] },
