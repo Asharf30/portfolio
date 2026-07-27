@@ -218,30 +218,26 @@
 .link-btn-ring {
   position: relative;
   display: inline-flex;
-  padding: 2px; /* سمك الرينج */
+  padding: 5px; /* سمك الرينج */
   overflow: hidden;
-  
 }
 
 .link-btn-ring::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;
-
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(255, 255, 255, 0.08) 40deg,
-    rgba(255, 255, 255, 0.35) 80deg,
-    #67e8f9 120deg,
-    rgba(255, 255, 255, 0.35) 160deg,
-    rgba(255, 255, 255, 0.08) 200deg,
-    rgba(255, 255, 255, 0.04) 240deg,
-    rgba(255, 255, 255, 0.08) 360deg
-  );
-
-  animation: ring-rotate 4s linear infinite;
+  
+ background: conic-gradient(
+  from 0deg,
+  rgba(103, 232, 249, 0.08) 0deg,
+  rgba(103, 232, 249, 0.18) 60deg,
+  rgba(103, 232, 249, 0.45) 120deg,
+  rgba(103, 232, 249, 0.18) 180deg,
+  rgba(103, 232, 249, 0.08) 240deg,
+  rgba(103, 232, 249, 0.04) 300deg,
+  rgba(103, 232, 249, 0.08) 360deg
+);
+  animation: ring-rotate 7s linear infinite;
 }
 
 .link-btn-ring > * {

@@ -1,27 +1,40 @@
 import Link from "next/link";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
-interface LinkButtonProps {
-  href: string;
+type LinkButtonBaseProps = {
   text: string;
   icon?: IconType;
   iconPosition?: "left" | "right";
   rounded?: boolean;
-  download?: boolean;
   variant?: "primary" | "outline" | "outline-subtle" | "glass";
+  fullWidth?: boolean;
   onClick?: () => void;
-}
+};
 
-const LinkButton = ({
-  href,
-  text,
-  icon: Icon,
-  iconPosition = "right",
-  rounded,
-  download = false,
-  variant = "primary",
-  onClick,
-}: LinkButtonProps) => {
+type LinkButtonLinkProps = LinkButtonBaseProps & {
+  href: string;
+  as?: "link";
+  download?: boolean;
+};
+
+type LinkButtonButtonProps = LinkButtonBaseProps & {
+  as: "button";
+  type?: "button" | "submit" | "reset";
+};
+
+type LinkButtonProps = LinkButtonLinkProps | LinkButtonButtonProps;
+
+const LinkButton = (props: LinkButtonProps) => {
+  const {
+    text,
+    icon: Icon,
+    iconPosition = "right",
+    rounded,
+    variant = "primary",
+    fullWidth = false,
+    onClick,
+  } = props;
+
   const baseStyles = `
     relative
     px-7 py-3.5
@@ -30,8 +43,10 @@ const LinkButton = ({
     inline-flex items-center justify-center gap-2.5
     overflow-hidden text-text
     border-0
-    transition-all duration-300 ease-out
+    cursor-pointer
+    transition-all duration-300 linear
     transform group-hover:-translate-y-0.5 group-active:translate-y-0 group-active:scale-[0.98]
+    ${fullWidth ? "w-full" : ""}
   `;
 
   const variants = {
@@ -44,7 +59,7 @@ const LinkButton = ({
   shadow-none
   transition-all
   duration-300
-  ease-out
+  linear
 
   group-hover:border-primary/70
   group-hover:bg-primary/[0.04]
@@ -66,50 +81,56 @@ group-hover:shadow-[0_0_8px_rgba(32,178,166,0.12)]
 `,
   };
 
+  const content = (
+    <>
+      {Icon && iconPosition === "left" && (
+        <Icon className="z-10 text-xl transition-all duration-300 linear group-hover:-translate-x-1 group-hover:scale-110" />
+      )}
+
+      <span className="z-10 relative tracking-wide transition-colors duration-300">
+        {text}
+      </span>
+
+      {Icon && iconPosition === "right" && (
+        <Icon className="z-10 text-xl transition-all duration-300 linear group-hover:translate-x-1 group-hover:scale-110" />
+      )}
+    </>
+  );
+
+  const buttonClassName = `${baseStyles} ${variants[variant]} relative z-10`;
+
   return (
     <div
       className={`link-btn-ring group relative inline-flex ${
         rounded ? "rounded-full" : "rounded-xl"
-      }`}
+      } ${fullWidth ? "w-full" : ""}`}
     >
-      {download ? (
+      {props.as === "button" ? (
+        <button
+          className={buttonClassName}
+          type={props.type ?? "button"}
+          onClick={onClick}
+        >
+          {content}
+        </button>
+      ) : props.download ? (
         <a
-          className={`${baseStyles} ${variants[variant]} relative z-10`}
-          href={href}
+          className={buttonClassName}
+          href={props.href}
           download
           target="_blank"
           rel="noopener noreferrer"
           onClick={onClick}
         >
-          {Icon && iconPosition === "left" && (
-            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:-translate-x-1 group-hover:scale-110" />
-          )}
-
-          <span className="z-10 relative tracking-wide transition-colors duration-300">
-            {text}
-          </span>
-
-          {Icon && iconPosition === "right" && (
-            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110" />
-          )}
+          {content}
         </a>
       ) : (
         <Link
-          className={`${baseStyles} ${variants[variant]} relative z-10`}
-          href={href}
+          className={buttonClassName}
+          href={props.href}
           onClick={onClick}
         >
-          {Icon && iconPosition === "left" && (
-            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:-translate-x-1 group-hover:scale-110" />
-          )}
-
-          <span className="z-10 relative tracking-wide transition-colors duration-300">
-            {text}
-          </span>
-
-          {Icon && iconPosition === "right" && (
-            <Icon className="z-10 text-xl transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110" />
-          )}
+          {content}
         </Link>
       )}
     </div>

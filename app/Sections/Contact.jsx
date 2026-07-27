@@ -1,4 +1,5 @@
 import SectionHeader from "../components/ui/SectionHeader";
+import LinkButton from "../components/ui/LinkButton";
 import { LuSend } from "react-icons/lu";
 const Contact = () => {
   return (
@@ -46,9 +47,15 @@ const Contact = () => {
                 className="w-full px-4 py-2 rounded-lg bg-background border border-border text-text outline-none focus:border-primary transition resize-none"
               />
             </div>
-            <button type="submit" >
-              <LuSend className="w-4 h-4"/>
-            </button>
+            <LinkButton
+              as="button"
+              type="submit"
+              text="Send Message"
+              icon={LuSend}
+              iconPosition="left"
+              rounded
+              fullWidth
+            />
           </form>
         </div>
       </div>
