@@ -20,8 +20,12 @@
 
 /* ── Animated Badge ── */
 @keyframes text-shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .animated-badge {
@@ -68,9 +72,15 @@
 /* ── Profile image animations ── */
 
 @keyframes about-ambient-drift {
-  0% { transform: translate(10%, -10%); }
-  50% { transform: translate(-10%, 10%); }
-  100% { transform: translate(10%, -10%); }
+  0% {
+    transform: translate(10%, -10%);
+  }
+  50% {
+    transform: translate(-10%, 10%);
+  }
+  100% {
+    transform: translate(10%, -10%);
+  }
 }
 
 .animate-ambient-drift {
@@ -169,7 +179,6 @@
   transition: opacity 500ms ease;
 }
 
-
 /* -- Skill icon ring -- */
 
 .skill-icon-ring {
@@ -196,8 +205,6 @@
   will-change: transform;
 }
 
-
-
 .profile-image-shell {
   --profile-glow-x: 50%;
   --profile-glow-y: 50%;
@@ -208,30 +215,38 @@
   border-radius: 50%;
 }
 
-/* -- Link button border -- */
+.link-btn-ring {
+  position: relative;
+  display: inline-flex;
+  padding: 2px; /* سمك الرينج */
+  overflow: hidden;
+  
+}
 
-.link-btn-border {
+.link-btn-ring::before {
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1px;
+
   background: conic-gradient(
     from 0deg,
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
+    transparent 0deg,
+    rgba(255, 255, 255, 0.08) 40deg,
+    rgba(255, 255, 255, 0.35) 80deg,
+    #67e8f9 120deg,
+    rgba(255, 255, 255, 0.35) 160deg,
+    rgba(255, 255, 255, 0.08) 200deg,
+    rgba(255, 255, 255, 0.04) 240deg,
+    rgba(255, 255, 255, 0.08) 360deg
   );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.94;
-  animation: ring-rotate 6s linear infinite;
-  will-change: transform;
+
+  animation: ring-rotate 4s linear infinite;
+}
+
+.link-btn-ring > * {
+  position: relative;
+  z-index: 2;
 }
 
 .profile-frame:hover .profile-gradient-ring,
@@ -317,7 +332,6 @@ body {
   pointer-events: auto;
 }
 /* ── About image animations ── */
-
 
 @property --about-ring-angle {
   syntax: "<angle>";

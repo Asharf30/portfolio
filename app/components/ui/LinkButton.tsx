@@ -29,19 +29,18 @@ const LinkButton = ({
     ${rounded ? "rounded-full" : "rounded-xl"}
     inline-flex items-center justify-center gap-2.5
     overflow-hidden text-text
-    border
+    border-0
     transition-all duration-300 ease-out
     transform group-hover:-translate-y-0.5 group-active:translate-y-0 group-active:scale-[0.98]
   `;
 
   const variants = {
-    primary: `bg-gradient-to-r from-primary via-[#26c5b8] to-primary text-background border-primary/40 shadow-[0_0_15px_rgba(32,178,166,0.3)] group-hover:shadow-[0_0_35px_rgba(32,178,166,0.7)]`,
-    outline: `bg-background/80 backdrop-blur-md text-text border-border group-hover:text-primary group-hover:border-primary group-hover:bg-primary/10`,
+    primary: `bg-gradient-to-r from-primary via-[#26c5b8] to-primary text-background shadow-[0_0_15px_rgba(32,178,166,0.3)] group-hover:shadow-[0_0_35px_rgba(32,178,166,0.7)]`,
+    outline: `bg-background/80 backdrop-blur-md text-text  group-hover:text-primary group-hover:border-primary group-hover:bg-primary/10`,
     "outline-subtle": `
   bg-background/80
   backdrop-blur-md
   text-text
-  border-border/60
   shadow-none
   transition-all
   duration-300
@@ -55,7 +54,6 @@ const LinkButton = ({
     glass: `
 bg-background/80
 backdrop-blur-md
-border-primary/40
 text-text
 shadow-none
 
@@ -69,32 +67,14 @@ group-hover:shadow-[0_0_8px_rgba(32,178,166,0.12)]
   };
 
   return (
-    <div className="relative inline-flex group">
-      {/* Rotating gradient border */}
-      <span
-        className={`link-btn-border absolute inset-0 pointer-events-none ${
-          rounded ? "rounded-full" : "rounded-xl"
-        }`}
-        aria-hidden="true"
-      />
-
-      {/* Outer Ambient Glow Ring / Halo */}
-      <span
-        className={`absolute -inset-0.5 ${
-          rounded ? "rounded-full" : "rounded-xl"
-        } bg-primary
-  opacity-0
-  blur-sm
-  transition-all
-  duration-300
-  group-hover:opacity-15
-  ${variant === "primary" ? "group-hover:opacity-20" : "pointer-events-none"}`}
-      />
-
-      {/* Main Link Button */}
+    <div
+      className={`link-btn-ring group relative inline-flex ${
+        rounded ? "rounded-full" : "rounded-xl"
+      }`}
+    >
       {download ? (
         <a
-          className={`${baseStyles} ${variants[variant]}`}
+          className={`${baseStyles} ${variants[variant]} relative z-10`}
           href={href}
           download
           target="_blank"
@@ -115,7 +95,7 @@ group-hover:shadow-[0_0_8px_rgba(32,178,166,0.12)]
         </a>
       ) : (
         <Link
-          className={`${baseStyles} ${variants[variant]}`}
+          className={`${baseStyles} ${variants[variant]} relative z-10`}
           href={href}
           onClick={onClick}
         >
