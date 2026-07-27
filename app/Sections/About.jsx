@@ -34,7 +34,7 @@ const About = () => {
                 aria-hidden="true"
               />
               <div
-                className="about-gradient-ring about-ring-rotate"
+                className="gradient-ring gradient-ring-rotate"
                 aria-hidden="true"
               />
 

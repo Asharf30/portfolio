@@ -327,13 +327,60 @@ body {
   height: 100%;
   pointer-events: auto;
 }
-/* ── About image animations ── */
+/* ── Shared gradient ring (reusable) ── */
 
-@property --about-ring-angle {
+@property --gradient-ring-angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
+
+@keyframes gradient-ring-rotate {
+  from {
+    --gradient-ring-angle: 0deg;
+  }
+  to {
+    --gradient-ring-angle: 360deg;
+  }
+}
+
+.gradient-ring {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--gradient-ring-angle),
+    rgba(34, 211, 238, 0.18) 0%,
+    rgba(34, 211, 238, 0.9) 8%,
+    rgba(20, 184, 166, 0.96) 22%,
+    rgba(52, 211, 153, 0.88) 36%,
+    rgba(34, 211, 238, 0.18) 46%,
+    rgba(20, 184, 166, 0.08) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.94;
+  transition: opacity 500ms ease;
+  pointer-events: none;
+}
+
+.gradient-ring-rotate {
+  animation: gradient-ring-rotate 6s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-ring-rotate {
+    animation: none !important;
+  }
+}
+
+/* ── About image animations ── */
 
 @keyframes about-float {
   0%,
@@ -345,14 +392,7 @@ body {
   }
 }
 
-@keyframes about-ring-rotate {
-  from {
-    --about-ring-angle: 0deg;
-  }
-  to {
-    --about-ring-angle: 360deg;
-  }
-}
+/* about-ring-rotate now uses the shared @property */
 
 @keyframes about-glow-pulse {
   0%,
@@ -370,9 +410,7 @@ body {
   animation: about-float 6s ease-in-out infinite;
 }
 
-.about-ring-rotate {
-  animation: about-ring-rotate 12s linear infinite;
-}
+/* .about-ring-rotate replaced by shared .gradient-ring-rotate */
 
 .about-glow-pulse-anim {
   animation: about-glow-pulse 6s ease-in-out infinite;
@@ -380,7 +418,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .about-float,
-  .about-ring-rotate,
   .about-glow-pulse-anim,
   .animate-ambient-drift {
     animation: none !important;
@@ -409,29 +446,7 @@ body {
   background: rgba(32, 178, 166, 0.2);
 }
 
-.about-gradient-ring {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  border-radius: inherit;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--about-ring-angle),
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.94;
-  transition: opacity 500ms ease;
-}
+/* .about-gradient-ring now extends .gradient-ring (applied via className in JSX) */
 
 .about-image-shell {
   --about-glow-x: 50%;
@@ -444,8 +459,8 @@ body {
   border-radius: inherit;
 }
 
-.about-image-frame:hover .about-gradient-ring,
-.about-image-frame:focus-within .about-gradient-ring {
+.about-image-frame:hover .gradient-ring,
+.about-image-frame:focus-within .gradient-ring {
   opacity: 0.98;
 }
 
@@ -482,7 +497,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .about-image-shell,
-  .about-gradient-ring,
+  .gradient-ring,
   .about-image,
   .about-cursor-glow {
     transition: none !important;
