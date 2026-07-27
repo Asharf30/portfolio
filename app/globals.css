@@ -115,7 +115,8 @@
 @media (prefers-reduced-motion: reduce) {
   .profile-float,
   .ring-rotate,
-  .glow-pulse-anim {
+  .glow-pulse-anim,
+  .skill-icon-ring {
     animation: none !important;
   }
 }
@@ -165,6 +166,39 @@
   mask-composite: exclude;
   opacity: 0.94;
   transition: opacity 500ms ease;
+}
+
+
+/* -- Skill icon ring -- */
+
+.skill-icon-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(34, 211, 238, 0.18) 0%,
+    rgba(34, 211, 238, 0.9) 8%,
+    rgba(20, 184, 166, 0.96) 22%,
+    rgba(52, 211, 153, 0.88) 36%,
+    rgba(34, 211, 238, 0.18) 46%,
+    rgba(20, 184, 166, 0.08) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.94;
+  animation: ring-rotate 6s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+
+.skill-card:hover .skill-icon-ring,
+.skill-card:focus-within .skill-icon-ring {
+  animation-play-state: running;
 }
 
 .profile-image-shell {
