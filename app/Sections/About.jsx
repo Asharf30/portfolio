@@ -108,7 +108,6 @@ const About = () => {
             <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
               <LuRocket className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:translate-x-1 group-hover:-translate-y-1" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Fast Performance</p>
-{/* rimary w-6 h-6 " /> */}
             </div>
           </div>
         </div>
