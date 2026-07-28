@@ -16,11 +16,11 @@ const Hero = () => {
     const rect = target.getBoundingClientRect();
     target.style.setProperty(
       "--profile-glow-x",
-      `${event.clientX - rect.left}px`
+      `${event.clientX - rect.left}px`,
     );
     target.style.setProperty(
       "--profile-glow-y",
-      `${event.clientY - rect.top}px`
+      `${event.clientY - rect.top}px`,
     );
   };
 
@@ -51,11 +51,11 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 w-[90%] mx-auto flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-
         {/* ── Text + Buttons — always first in DOM (mobile + desktop) ── */}
         <div className="flex flex-col gap-6 sm:gap-7 text-center lg:text-left items-center lg:items-start">
           <span
-            className="animated-badge inline-block py-1.5 px-4 rounded-full bg-primary/10 text-sm"
+            data-aos="fade-up"
+            className="animated-badge  inline-block py-1.5 px-4 rounded-full bg-primary/10 text-sm"
           >
             <span className="badge-text">
               Frontend Developer • React &amp; Next.js
@@ -63,6 +63,8 @@ const Hero = () => {
           </span>
 
           <h1
+            data-aos="fade-up"
+            data-aos-delay="300"
             className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-text/90
             max-w-[20ch] lg:max-w-none text-pretty"
           >
@@ -70,7 +72,11 @@ const Hero = () => {
             <span className="text-primary/70">Clean Code</span>
           </h1>
 
-          <p className="text-gray-400 tracking-wide text-balance leading-relaxed max-w-[52ch]">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="text-gray-400 tracking-wide text-balance leading-relaxed max-w-[52ch]"
+          >
             I am Ashraf Osama, a Frontend Developer focused on building
             responsive, high-performance web applications using React, Next.js,
             TypeScript, and Tailwind CSS. Focused on performance, clean UI, and
@@ -78,7 +84,11 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons — side by side ≥360px, stacked below */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full max-[359px]:[&>*]:w-full min-[360px]:[&>*]:w-auto">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="800"
+            className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full max-[359px]:[&>*]:w-full min-[360px]:[&>*]:w-auto"
+          >
             <LinkButton
               text="Get in Touch"
               href="#contact"
@@ -95,14 +105,24 @@ const Hero = () => {
         </div>
 
         {/* ── Profile image — below buttons on mobile, right column on desktop ── */}
-        <div className="flex justify-center lg:justify-end mt-14 sm:mt-16 md:mt-18 lg:mt-0">
+        <div
+          data-aos="fade-left"
+          // data-aos-delay="700"
+          className="flex justify-center lg:justify-end mt-14 sm:mt-16 md:mt-18 lg:mt-0"
+        >
           <div className="profile-float">
             <div
               className="profile-frame relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80
                 lg:w-[340px] lg:h-[340px] xl:w-[420px] xl:h-[420px]"
             >
-              <div className="profile-back-glow glow-pulse-anim" aria-hidden="true" />
-              <div className="profile-gradient-ring ring-rotate" aria-hidden="true" />
+              <div
+                className="profile-back-glow glow-pulse-anim"
+                aria-hidden="true"
+              />
+              <div
+                className="profile-gradient-ring ring-rotate"
+                aria-hidden="true"
+              />
 
               <div
                 ref={imageGlowRef}
@@ -122,7 +142,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

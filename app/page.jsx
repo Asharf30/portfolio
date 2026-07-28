@@ -5,9 +5,10 @@ import Skills from "./Sections/Skills";
 import Projects from "./Sections/Projects";
 import Contact from "./Sections/Contact";
 import Footer from "./Sections/Footer";
+import AnimationLayout from "./components/animations/AnimationLayout";
 export default function Home() {
   return (
-    <main>
+    <AnimationLayout>
       <Hero />
       <About />
       <Skills />
@@ -15,6 +16,6 @@ export default function Home() {
       <Contact />
       <Footer />
       <Toaster />
-    </main>
+    </AnimationLayout>
   );
 }
