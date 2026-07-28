@@ -28,12 +28,16 @@ const MobileNav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
                   : "opacity-0 translate-y-5 scale-95"
               }`}
               style={{
-                transitionDelay: isMobileMenuOpen ? `${150 + index * 60}ms` : "0ms",
+                transitionDelay: isMobileMenuOpen
+                  ? `${150 + index * 60}ms`
+                  : "0ms",
               }}
             >
               <Link
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen && setIsMobileMenuOpen(false)}
+                onClick={() =>
+                  setIsMobileMenuOpen && setIsMobileMenuOpen(false)
+                }
                 className="block w-full text-center py-3.5 px-6 rounded-lg text-lg font-medium text-text border border-transparent transition-all duration-300 hover:bg-primary/10 hover:text-primary hover:border-border hover:scale-[1.02]"
               >
                 {link.label || link.lable}
@@ -49,14 +53,18 @@ const MobileNav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
               : "opacity-0 translate-y-6 scale-90"
           }`}
           style={{
-            transitionDelay: isMobileMenuOpen ? `${150 + navLinks.length * 60}ms` : "0ms",
+            transitionDelay: isMobileMenuOpen
+              ? `${150 + navLinks.length * 60}ms`
+              : "0ms",
           }}
         >
           <LinkButton
             iconPosition="left"
             icon={MdDownload}
             download
-            href="/Ashraf_Osama_Frontend_CV.pdf"
+            href="https://drive.google.com/uc?export=download&id=1y2yv063urwXCP2_O9gKNj7HOcZZL6nL6"
+            target="_blank"
+            rel="noopener noreferrer"
             text="Download CV"
             rounded
             onClick={() => setIsMobileMenuOpen && setIsMobileMenuOpen(false)}
@@ -68,4 +76,3 @@ const MobileNav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
 };
 
 export default MobileNav;
-

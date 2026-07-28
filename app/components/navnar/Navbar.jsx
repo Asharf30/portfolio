@@ -44,7 +44,7 @@ const Navbar = () => {
           const delta = currentY - lastScrollY.current;
           if (Math.abs(delta) > SCROLL_THRESHOLD) {
             if (delta > 0) {
-              setHidden(true);  // scrolling DOWN → hide
+              setHidden(true); // scrolling DOWN → hide
             } else {
               setHidden(false); // scrolling UP   → show
             }
@@ -67,19 +67,14 @@ const Navbar = () => {
         transform/opacity animation only — no layout properties animated.
       */}
       <div
-        className={`
-          fixed top-2 left-0 w-full z-60
-          ${scrolled
-            ? "bg-[rgba(15,20,24,0.35)] backdrop-blur-[20px] backdrop-saturate-150 border-b border-[rgba(255,255,255,0.06)] shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
-            : "bg-transparent border-b border-transparent"
-          }
-        `}
+        className="fixed top-2 left-0 w-full z-60"
         style={{
-          transform: hidden && !isMobileMenuOpen ? "translateY(-100%)" : "translateY(0)",
+          transform:
+            hidden && !isMobileMenuOpen ? "translateY(-100%)" : "translateY(0)",
           opacity: hidden && !isMobileMenuOpen ? 0 : 1,
           filter: hidden && !isMobileMenuOpen ? "blur(4px)" : "blur(0px)",
           transition:
-            "transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms cubic-bezier(0.16, 1, 0.3, 1), background-color 400ms ease, backdrop-filter 400ms ease",
+            "transform 400ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), filter 400ms cubic-bezier(0.16, 1, 0.3, 1)",
           willChange: "transform, opacity, filter",
         }}
       >
@@ -107,7 +102,9 @@ const Navbar = () => {
               iconPosition="left"
               icon={MdDownload}
               download
-              href="/Ashraf_Osama_Frontend_CV.pdf"
+              href="https://drive.google.com/uc?export=download&id=1y2yv063urwXCP2_O9gKNj7HOcZZL6nL6"
+              target="_blank"
+              rel="noopener noreferrer"
               text="Download CV"
               rounded
             />
