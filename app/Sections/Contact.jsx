@@ -1,6 +1,26 @@
 import SectionHeader from "../components/ui/SectionHeader";
 import LinkButton from "../components/ui/LinkButton";
-import { LuSend } from "react-icons/lu";
+import { LuSend, LuMapPin, LuMail, LuPhone } from "react-icons/lu";
+
+const contactInfo = [
+  {
+    icon: LuMail,
+    title: "Email",
+    value: "ashmax0109@gmail.com",
+    href: "mailto:ashmax0109@gmail.com",
+  },
+  {
+    icon: LuPhone,
+    title: "Phone",
+    value: "(+20) 01093265243",
+    href: "https://wa.me/201093265243",
+  },
+  {
+    icon: LuMapPin,
+    label: "Location",
+    value: "Mansoura, Dakahlia, Egypt",
+  },
+];
 const Contact = () => {
   return (
     <div id="contact" className="py-24 relative overflow-hidden">
@@ -19,13 +39,17 @@ const Contact = () => {
           <div className="relative isolate rounded-2xl">
             <div
               className="gradient-ring gradient-ring-rotate"
-              style={{ borderRadius: 'inherit' }}
+              style={{ borderRadius: "inherit" }}
               aria-hidden="true"
             />
             <form className="p-6 rounded-2xl bg-surface border border-border  space-y-5 relative z-10">
-              <h3 className="text-lg font-semibold text-text ">Send a message</h3>
+              <h3 className="text-lg font-semibold text-text ">
+                Send a message
+              </h3>
               <div>
-                <label className="text-sm text-gray-400 block mb-1 ">Name</label>
+                <label className="text-sm text-gray-400 block mb-1 ">
+                  Name
+                </label>
                 <input
                   type="text"
                   required
@@ -34,7 +58,9 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="text-sm text-gray-400 block mb-1 ">Email</label>
+                <label className="text-sm text-gray-400 block mb-1 ">
+                  Email
+                </label>
                 <input
                   type="email"
                   required
@@ -63,6 +89,27 @@ const Contact = () => {
                 fullWidth
               />
             </form>
+          </div>
+          {/* right */}
+          <div className="p-2 ">
+            <h3 className="text-3xl font-semibold mb-6">Contact Information</h3>
+            <div className="space-y-4">
+              {contactInfo.map((info, index) => (
+                <a
+                  key={index}
+                  href={info.href}
+                  className="flex items-center  gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex justify-center items-center group-hover:bg-primary/20 transition-colors">
+                    <info.icon className="text-primary w-5 h-5 " />
+                  </div>
+                  <div>
+                    <div className="text-gray-400 text-sm">{info.label}</div>
+                    <div className="font-medium">{info.value}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
