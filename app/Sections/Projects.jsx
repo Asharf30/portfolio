@@ -24,7 +24,7 @@ const Projects = () => {
       title: "Portfolio Website",
       description:
         "A personal portfolio showcasing projects, skills, and contact features with smooth animations and modern design.",
-      image: "/images/port.png",
+      image: "/images/portfolio.png",
       tags: ["Next.js", "Tailwind CSS", "GSAP"],
       githubURL: "https://github.com/Asharf30/portfolio",
     },

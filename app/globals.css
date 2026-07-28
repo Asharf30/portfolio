@@ -3,7 +3,6 @@
 @theme {
   --color-primary: #2563EB;
   --color-background: #0a0e1a;
-  --color-card: #10162a;
   --color-border: #202b45;
   --color-surface: #161e33;
   --color-text: #eaf0fb;
@@ -126,15 +125,13 @@
   .profile-float,
   .ring-rotate,
   .glow-pulse-anim,
-  .skill-icon-ring,
-  .link-btn-border {
+  .skill-icon-ring {
     animation: none !important;
   }
 }
 
 .profile-float,
-.ring-rotate,
-.glow-pulse-anim {
+.ring-rotate {
   will-change: transform;
 }
 
@@ -424,8 +421,7 @@ body {
   }
 }
 
-.about-float,
-.about-glow-pulse-anim {
+.about-float {
   will-change: transform;
 }
 
@@ -464,16 +460,6 @@ body {
   opacity: 0.98;
 }
 
-.about-image {
-  transition: transform 500ms ease;
-  will-change: transform;
-}
-
-.about-image-shell:hover .about-image,
-.about-image-shell:focus-within .about-image {
-  transform: scale(1.025);
-}
-
 .about-cursor-glow {
   position: absolute;
   inset: 0;
@@ -498,14 +484,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .about-image-shell,
   .gradient-ring,
-  .about-image,
   .about-cursor-glow {
     transition: none !important;
-  }
-
-  .about-image-shell:hover .about-image,
-  .about-image-shell:focus-within .about-image {
-    transform: none;
   }
 }
 
@@ -575,19 +555,6 @@ body {
   animation: social-icon-pulse 0.6s ease-out;
 }
 
-/* ── Skill card stagger-ready glow on entrance ── */
-@keyframes card-glow-in {
-  0% {
-    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
-  }
-  50% {
-    box-shadow: 0 0 18px rgba(37, 99, 235, 0.12);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
-  }
-}
-
 /* ── Project card image overlay shimmer ── */
 @keyframes project-image-shimmer {
   0%   { opacity: 0; transform: translateX(-100%); }
@@ -623,27 +590,6 @@ body {
   background: rgba(37, 99, 235, 0.18);
   border-color: rgba(37, 99, 235, 0.4);
   transform: translateY(-1px);
-}
-
-/* ── Footer link underline grow ── */
-.footer-link-underline {
-  position: relative;
-}
-
-.footer-link-underline::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: var(--color-primary);
-  transition: width 300ms ease, left 300ms ease;
-}
-
-.footer-link-underline:hover::after {
-  width: 100%;
-  left: 0;
 }
 
 /* ── Coordinated Skills Grid Entrance ── */
