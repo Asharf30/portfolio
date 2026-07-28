@@ -79,16 +79,16 @@ const Navbar = () => {
         }}
       >
         {/* Inner row — constrained to max-w-7xl, aligns with Hero content */}
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto w-[95%] sm:w-[92%] lg:w-[90%] px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4 rounded-full bg-gradient-to-b from-surface/75 to-surface/55 backdrop-blur-md border border-primary/20 shadow-[0_8px_32px_rgba(37,99,235,0.08),inset_0_1px_0_rgba(255,255,255,0.05)]">
           <Logo />
 
           <div className="hidden lg:flex flex-1 justify-center">
-            <ul className="flex items-center gap-1 py-2.5 px-1 rounded-full bg-surface/60 backdrop-blur-xl border border-border">
+            <ul className="flex items-center gap-1">
               {navLinks.map((link, index) => (
                 <li key={index}>
                   <Link
                     href={link.href}
-                    className="px-4 py-2 rounded-full text-sm font-medium text-gray-300 transition-all duration-300 hover:text-primary hover:bg-surface"
+                    className="px-4 py-2 rounded-full text-sm font-medium text-gray-300 transition-all duration-300 hover:text-primary hover:bg-primary/10"
                   >
                     {link.lable}
                   </Link>
@@ -112,10 +112,10 @@ const Navbar = () => {
 
           <button
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className={`z-50 cursor-pointer lg:hidden relative w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
+            className={`z-50 cursor-pointer lg:hidden relative w-11 h-11 rounded-full flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
               isMobileMenuOpen
-                ? "border-primary bg-primary/15 text-primary shadow-[0_0_25px_rgba(37, 99, 235, 0.45)] rotate-180"
-                : "border-border bg-surface/60 text-text hover:border-primary/60 hover:text-primary hover:shadow-[0_0_15px_rgba(37, 99, 235, 0.2)] rotate-0"
+                ? "border-primary/50 bg-primary/10 text-primary rotate-180"
+                : "border-transparent bg-transparent text-text hover:bg-primary/10 hover:text-primary rotate-0"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
