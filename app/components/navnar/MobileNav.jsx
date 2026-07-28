@@ -6,12 +6,12 @@ import { MdDownload } from "react-icons/md";
 const MobileNav = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
   return (
     <div
-      className={`fixed inset-0 z-40 lg:hidden bg-background/70 backdrop-blur-sm transition-all duration-500 
+      className={`absolute -top-2 left-0 w-screen h-[100dvh] z-40 lg:hidden bg-background/70 backdrop-blur-sm transition-all duration-500 
         ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       onClick={() => setIsMobileMenuOpen && setIsMobileMenuOpen(false)}
     >
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-[80%] sm:w-[60%] lg:hidden bg-surface/95 
+        className={`absolute top-0 right-0 z-50 h-[100dvh] w-[80%] sm:w-[60%] lg:hidden bg-surface/95 
             backdrop-blur-md border-l border-border flex flex-col items-center justify-center 
             space-y-6 px-6 transition-all duration-500 ${
               isMobileMenuOpen ? "translate-x-0" : "translate-x-full"

@@ -79,7 +79,7 @@ const Navbar = () => {
         }}
       >
         {/* Inner row — constrained to max-w-7xl, aligns with Hero content */}
-        <div className="max-w-7xl mx-auto w-[95%] sm:w-[92%] lg:w-[90%] px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4 rounded-full bg-gradient-to-b from-surface/75 to-surface/55 backdrop-blur-md border border-primary/20 shadow-[0_8px_32px_rgba(37,99,235,0.08),inset_0_1px_0_rgba(255,255,255,0.05)]">
+        <div className={`max-w-7xl mx-auto w-[95%] sm:w-[92%] lg:w-[90%] px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4 rounded-full bg-gradient-to-b from-surface/75 to-surface/55 border border-primary/20 shadow-[0_8px_32px_rgba(37,99,235,0.08),inset_0_1px_0_rgba(255,255,255,0.05)] ${isMobileMenuOpen ? "" : "backdrop-blur-md"}`}>
           <Logo />
 
           <div className="hidden lg:flex flex-1 justify-center">
@@ -112,10 +112,10 @@ const Navbar = () => {
 
           <button
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className={`z-50 cursor-pointer lg:hidden relative w-11 h-11 rounded-full flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
+            className={`cursor-pointer lg:hidden relative w-11 h-11 rounded-full flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
               isMobileMenuOpen
-                ? "border-primary/50 bg-primary/10 text-primary rotate-180"
-                : "border-transparent bg-transparent text-text hover:bg-primary/10 hover:text-primary rotate-0"
+                ? "z-[100] border-primary/50 bg-primary/10 text-primary rotate-180"
+                : "z-50 border-transparent bg-transparent text-text hover:bg-primary/10 hover:text-primary rotate-0"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -141,12 +141,11 @@ const Navbar = () => {
             </div>
           </button>
         </div>
+        <MobileNav
+          isMobileMenuOpen={isMobileMenuOpen}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
+        />
       </div>
-
-      <MobileNav
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-      />
     </>
   );
 };
