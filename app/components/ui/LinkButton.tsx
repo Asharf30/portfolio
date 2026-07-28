@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useRef, useCallback } from "react";
+import { gsap } from "gsap";
 import type { IconType } from "react-icons";
 import type { ReactNode } from "react";
 
@@ -38,6 +42,29 @@ const LinkButton = (props: LinkButtonProps) => {
     disabled = false,
   } = props;
 
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  /* ── GSAP hover animation ── */
+  const handleMouseEnter = useCallback(() => {
+    if (disabled || !wrapperRef.current) return;
+    gsap.to(wrapperRef.current, {
+      scale: 1.05,
+      boxShadow: "0 0 28px rgba(20, 184, 166, 0.45)",
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  }, [disabled]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!wrapperRef.current) return;
+    gsap.to(wrapperRef.current, {
+      scale: 1,
+      boxShadow: "0 0 0px rgba(20, 184, 166, 0)",
+      duration: 0.3,
+      ease: "power2.inOut",
+    });
+  }, []);
+
   const baseStyles = `
     relative
     px-7 py-3.5
@@ -56,8 +83,14 @@ const LinkButton = (props: LinkButtonProps) => {
     }
   `;
 
+  /*
+   * FIX: Tailwind v4 arbitrary values must use underscores for spaces.
+   * The old syntax shadow-[0_0_15px_rgba(37, 99, 235, 0.3)] broke because
+   * the spaces after commas split the class into multiple invalid tokens.
+   * Now using rgba(20,184,166,...) — teal #14B8A6 — with no spaces.
+   */
   const variants = {
-    primary: `bg-gradient-to-r from-primary via-[#2563EB] to-primary text-background shadow-[0_0_15px_rgba(37, 99, 235, 0.3)] group-hover:shadow-[0_0_35px_rgba(37, 99, 235, 0.7)]`,
+    primary: `bg-gradient-to-r from-[#14B8A6] via-primary to-[#14B8A6] text-background shadow-[0_0_15px_rgba(20,184,166,0.3)]`,
     outline: `bg-background/80 backdrop-blur-md text-text group-hover:text-primary group-hover:border-primary group-hover:bg-primary/10`,
     "outline-subtle": `
       bg-background/80
@@ -70,7 +103,7 @@ const LinkButton = (props: LinkButtonProps) => {
       group-hover:border-primary/70
       group-hover:bg-primary/[0.04]
       group-hover:text-primary
-      group-hover:shadow-[0_0_10px_rgba(37, 99, 235, 0.15)]
+      group-hover:shadow-[0_0_10px_rgba(20,184,166,0.15)]
     `,
     glass: `
       bg-background/80
@@ -81,7 +114,7 @@ const LinkButton = (props: LinkButtonProps) => {
       duration-300
       group-hover:border-primary/80
       group-hover:bg-primary/[0.05]
-      group-hover:shadow-[0_0_8px_rgba(37, 99, 235, 0.12)]
+      group-hover:shadow-[0_0_8px_rgba(20,184,166,0.12)]
     `,
   };
 
@@ -121,9 +154,12 @@ const LinkButton = (props: LinkButtonProps) => {
 
   return (
     <div
+      ref={wrapperRef}
       className={`link-btn-ring group relative inline-flex ${
         rounded ? "rounded-full" : "rounded-xl"
       } ${fullWidth ? "w-full" : ""}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {props.as === "button" ? (
         <button
