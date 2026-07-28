@@ -29,8 +29,8 @@ function hexToRgb(hex) {
 const DotGrid = ({
   dotSize = 16,
   gap = 32,
-  baseColor = "#5227FF",
-  activeColor = "#5227FF",
+  baseColor,
+  activeColor,
   proximity = 150,
   speedTrigger = 100,
   shockRadius = 250,
@@ -55,8 +55,15 @@ const DotGrid = ({
     lastY: 0,
   });
 
-  const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
-  const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
+  // Resolve colors from CSS custom properties when not explicitly provided
+  const resolvedColors = useMemo(() => {
+    if (typeof window === "undefined") return { base: baseColor || "#2563EB", active: activeColor || "#2563EB" };
+    const primary = getComputedStyle(document.documentElement).getPropertyValue("--color-primary").trim() || "#2563EB";
+    return { base: baseColor || primary, active: activeColor || primary };
+  }, [baseColor, activeColor]);
+
+  const baseRgb = useMemo(() => hexToRgb(resolvedColors.base), [resolvedColors.base]);
+  const activeRgb = useMemo(() => hexToRgb(resolvedColors.active), [resolvedColors.active]);
 
   const circlePath = useMemo(() => {
     if (typeof window === "undefined" || !window.Path2D) return null;
@@ -127,7 +134,7 @@ const DotGrid = ({
         const dy = dot.cy - py;
         const dsq = dx * dx + dy * dy;
 
-        let style = baseColor;
+        let style = resolvedColors.base;
         if (dsq <= proxSq) {
           const dist = Math.sqrt(dsq);
           const t = 1 - dist / proximity;
@@ -149,7 +156,7 @@ const DotGrid = ({
 
     draw();
     return () => cancelAnimationFrame(rafId);
-  }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
+  }, [proximity, resolvedColors, activeRgb, baseRgb, circlePath]);
 
   useEffect(() => {
     buildGrid();

@@ -229,13 +229,13 @@
   
  background: conic-gradient(
   from 0deg,
-  rgba(251, 191, 36, 0.08) 0deg,
-  rgba(251, 191, 36, 0.18) 60deg,
-  rgba(251, 191, 36, 0.45) 120deg,
-  rgba(251, 191, 36, 0.18) 180deg,
-  rgba(251, 191, 36, 0.08) 240deg,
-  rgba(251, 191, 36, 0.04) 300deg,
-  rgba(251, 191, 36, 0.08) 360deg
+  rgba(20, 184, 166, 0.08) 0deg,
+  rgba(20, 184, 166, 0.18) 60deg,
+  rgba(20, 184, 166, 0.45) 120deg,
+  rgba(20, 184, 166, 0.18) 180deg,
+  rgba(20, 184, 166, 0.08) 240deg,
+  rgba(20, 184, 166, 0.04) 300deg,
+  rgba(20, 184, 166, 0.08) 360deg
 );
   animation: ring-rotate 7s linear infinite;
 }

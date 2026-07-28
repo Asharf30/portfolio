@@ -41,7 +41,7 @@ const Hero = () => {
           dotSize={2}
           gap={15}
           baseColor="#2F293A"
-          activeColor="#21b6aa"
+          activeColor="#2563EB"
           proximity={120}
           shockRadius={250}
           shockStrength={5}
