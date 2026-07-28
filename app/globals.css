@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #20b2a6;
-  --color-background: #0f1418;
-  --color-card: #141a1f;
-  --color-border: #242b32;
-  --color-surface: #1a2329;
-  --color-text: #f0f2f5;
+  --color-primary: #2563EB;
+  --color-background: #0a0e1a;
+  --color-card: #10162a;
+  --color-border: #202b45;
+  --color-surface: #161e33;
+  --color-text: #eaf0fb;
 }
 
 @keyframes shine-sweep {
@@ -31,8 +31,8 @@
 .animated-badge {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(32, 178, 166, 0.25);
-  box-shadow: 0 0 15px rgba(32, 178, 166, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.15);
 }
 
 .animated-badge::before {
@@ -152,7 +152,7 @@
   inset: -8%;
   z-index: -2;
   border-radius: 50%;
-  background: rgba(32, 178, 166, 0.2);
+  background: rgba(37, 99, 235, 0.2);
 }
 
 .profile-gradient-ring {
@@ -163,12 +163,12 @@
   padding: 2px;
   background: conic-gradient(
     from 0deg,
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
+    rgba(251, 191, 36, 0.18) 0%,
+    rgba(251, 191, 36, 0.9) 8%,
+    rgba(37, 99, 235, 0.96) 22%,
+    rgba(251, 191, 36, 0.88) 36%,
+    rgba(251, 191, 36, 0.18) 46%,
+    rgba(37, 99, 235, 0.08) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -188,12 +188,12 @@
   padding: 2px;
   background: conic-gradient(
     from 0deg,
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
+    rgba(251, 191, 36, 0.18) 0%,
+    rgba(251, 191, 36, 0.9) 8%,
+    rgba(37, 99, 235, 0.96) 22%,
+    rgba(251, 191, 36, 0.88) 36%,
+    rgba(251, 191, 36, 0.18) 46%,
+    rgba(37, 99, 235, 0.08) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -229,13 +229,13 @@
   
  background: conic-gradient(
   from 0deg,
-  rgba(103, 232, 249, 0.08) 0deg,
-  rgba(103, 232, 249, 0.18) 60deg,
-  rgba(103, 232, 249, 0.45) 120deg,
-  rgba(103, 232, 249, 0.18) 180deg,
-  rgba(103, 232, 249, 0.08) 240deg,
-  rgba(103, 232, 249, 0.04) 300deg,
-  rgba(103, 232, 249, 0.08) 360deg
+  rgba(251, 191, 36, 0.08) 0deg,
+  rgba(251, 191, 36, 0.18) 60deg,
+  rgba(251, 191, 36, 0.45) 120deg,
+  rgba(251, 191, 36, 0.18) 180deg,
+  rgba(251, 191, 36, 0.08) 240deg,
+  rgba(251, 191, 36, 0.04) 300deg,
+  rgba(251, 191, 36, 0.08) 360deg
 );
   animation: ring-rotate 7s linear infinite;
 }
@@ -266,7 +266,7 @@
   border-radius: inherit;
   background: radial-gradient(
     circle 120px at var(--profile-glow-x) var(--profile-glow-y),
-    rgba(32, 178, 166, 0.16),
+    rgba(37, 99, 235, 0.16),
     rgba(240, 242, 245, 0.05) 34%,
     transparent 70%
   );
@@ -352,12 +352,12 @@ body {
   padding: 2px;
   background: conic-gradient(
     from var(--gradient-ring-angle),
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
+    rgba(251, 191, 36, 0.18) 0%,
+    rgba(251, 191, 36, 0.9) 8%,
+    rgba(37, 99, 235, 0.96) 22%,
+    rgba(251, 191, 36, 0.88) 36%,
+    rgba(251, 191, 36, 0.18) 46%,
+    rgba(37, 99, 235, 0.08) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -443,7 +443,7 @@ body {
   inset: -8%;
   z-index: -2;
   border-radius: 1rem;
-  background: rgba(32, 178, 166, 0.2);
+  background: rgba(37, 99, 235, 0.2);
 }
 
 /* .about-gradient-ring now extends .gradient-ring (applied via className in JSX) */
@@ -480,7 +480,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     circle 120px at var(--about-glow-x) var(--about-glow-y),
-    rgba(32, 178, 166, 0.16),
+    rgba(37, 99, 235, 0.16),
     rgba(240, 242, 245, 0.05) 34%,
     transparent 70%
   );
@@ -526,9 +526,9 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(32, 178, 166, 0.04) 20%,
-    rgba(32, 178, 166, 0.25) 50%,
-    rgba(32, 178, 166, 0.04) 80%,
+    rgba(37, 99, 235, 0.04) 20%,
+    rgba(37, 99, 235, 0.25) 50%,
+    rgba(37, 99, 235, 0.04) 80%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -542,12 +542,12 @@ body {
 
 .contact-info-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(32, 178, 166, 0.08);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
 }
 
 .contact-info-card:hover .contact-icon-wrap {
   transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(32, 178, 166, 0.2);
+  box-shadow: 0 0 16px rgba(37, 99, 235, 0.2);
 }
 
 .contact-icon-wrap {
@@ -561,14 +561,14 @@ body {
 
 .form-input-glow:focus {
   border-color: var(--color-primary) !important;
-  box-shadow: 0 0 0 3px rgba(32, 178, 166, 0.08), 0 0 12px rgba(32, 178, 166, 0.06);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08), 0 0 12px rgba(37, 99, 235, 0.06);
 }
 
 /* ── Footer social icon hover pulse ── */
 @keyframes social-icon-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(32, 178, 166, 0.3); }
-  70%  { box-shadow: 0 0 0 8px rgba(32, 178, 166, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(32, 178, 166, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3); }
+  70%  { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 .social-icon-hover:hover {
@@ -578,13 +578,13 @@ body {
 /* ── Skill card stagger-ready glow on entrance ── */
 @keyframes card-glow-in {
   0% {
-    box-shadow: 0 0 0 rgba(32, 178, 166, 0);
+    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
   }
   50% {
-    box-shadow: 0 0 18px rgba(32, 178, 166, 0.12);
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.12);
   }
   100% {
-    box-shadow: 0 0 0 rgba(32, 178, 166, 0);
+    box-shadow: 0 0 0 rgba(37, 99, 235, 0);
   }
 }
 
@@ -602,7 +602,7 @@ body {
   background: linear-gradient(
     105deg,
     transparent 30%,
-    rgba(32, 178, 166, 0.12) 50%,
+    rgba(37, 99, 235, 0.12) 50%,
     transparent 70%
   );
   opacity: 0;
@@ -620,8 +620,8 @@ body {
 }
 
 .tag-pill:hover {
-  background: rgba(32, 178, 166, 0.18);
-  border-color: rgba(32, 178, 166, 0.4);
+  background: rgba(37, 99, 235, 0.18);
+  border-color: rgba(37, 99, 235, 0.4);
   transform: translateY(-1px);
 }
 

@@ -117,8 +117,8 @@ const Navbar = () => {
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className={`z-50 cursor-pointer lg:hidden relative w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-90 ${
               isMobileMenuOpen
-                ? "border-primary bg-primary/15 text-primary shadow-[0_0_25px_rgba(32,178,166,0.45)] rotate-180"
-                : "border-border bg-surface/60 text-text hover:border-primary/60 hover:text-primary hover:shadow-[0_0_15px_rgba(32,178,166,0.2)] rotate-0"
+                ? "border-primary bg-primary/15 text-primary shadow-[0_0_25px_rgba(37, 99, 235, 0.45)] rotate-180"
+                : "border-border bg-surface/60 text-text hover:border-primary/60 hover:text-primary hover:shadow-[0_0_15px_rgba(37, 99, 235, 0.2)] rotate-0"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >

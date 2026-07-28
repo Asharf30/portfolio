@@ -58,7 +58,7 @@ const Skills = () => {
             <div
               key={skill.name}
               style={{ '--card-index': index }}
-              className="skill-card group flex flex-col items-center justify-center rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)]"
+              className="skill-card group flex flex-col items-center justify-center rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)]"
             >
               {/* Icon wrapper */}
               <div className="relative isolate mb-3 flex h-14 w-14 items-center justify-center rounded-full">

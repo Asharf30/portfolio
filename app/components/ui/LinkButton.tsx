@@ -57,7 +57,7 @@ const LinkButton = (props: LinkButtonProps) => {
   `;
 
   const variants = {
-    primary: `bg-gradient-to-r from-primary via-[#26c5b8] to-primary text-background shadow-[0_0_15px_rgba(32,178,166,0.3)] group-hover:shadow-[0_0_35px_rgba(32,178,166,0.7)]`,
+    primary: `bg-gradient-to-r from-primary via-[#2563EB] to-primary text-background shadow-[0_0_15px_rgba(37, 99, 235, 0.3)] group-hover:shadow-[0_0_35px_rgba(37, 99, 235, 0.7)]`,
     outline: `bg-background/80 backdrop-blur-md text-text group-hover:text-primary group-hover:border-primary group-hover:bg-primary/10`,
     "outline-subtle": `
       bg-background/80
@@ -70,7 +70,7 @@ const LinkButton = (props: LinkButtonProps) => {
       group-hover:border-primary/70
       group-hover:bg-primary/[0.04]
       group-hover:text-primary
-      group-hover:shadow-[0_0_10px_rgba(32,178,166,0.15)]
+      group-hover:shadow-[0_0_10px_rgba(37, 99, 235, 0.15)]
     `,
     glass: `
       bg-background/80
@@ -81,7 +81,7 @@ const LinkButton = (props: LinkButtonProps) => {
       duration-300
       group-hover:border-primary/80
       group-hover:bg-primary/[0.05]
-      group-hover:shadow-[0_0_8px_rgba(32,178,166,0.12)]
+      group-hover:shadow-[0_0_8px_rgba(37, 99, 235, 0.12)]
     `,
   };
 

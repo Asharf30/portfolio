@@ -56,7 +56,7 @@ const About = () => {
                         dotSize={2}
                         gap={10}
                         baseColor="#2F293A"
-                        activeColor="#20b2a6"
+                        activeColor="#2563EB"
                         proximity={80}
                         shockRadius={150}
                         shockStrength={4}
@@ -97,15 +97,15 @@ const About = () => {
             contribute to real products.
           </p>
           <div data-aos="fade-up" data-aos-delay="300" className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 ">
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuCode className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Clean Code</p>
             </div>
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuDatabase className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Responsive Design</p>
             </div>
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuRocket className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:translate-x-1 group-hover:-translate-y-1" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Fast Performance</p>
             </div>

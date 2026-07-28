@@ -86,15 +86,15 @@ const About = () => {
             contribute to real products.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 ">
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuCode className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Clean Code</p>
             </div>
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuDatabase className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Responsive Design</p>
             </div>
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuRocket className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:translate-x-1 group-hover:-translate-y-1" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Fast Performance</p>
             </div>
@@ -227,15 +227,15 @@ const About = () => {
             contribute to real products.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 ">
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuCode className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Clean Code</p>
             </div>
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuDatabase className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Responsive Design</p>
             </div>
-            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
+            <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(37, 99, 235, 0.15)] hover:border-primary/40 cursor-pointer">
               <LuRocket className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:translate-x-1 group-hover:-translate-y-1" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Fast Performance</p>
             </div>
@@ -254,12 +254,12 @@ export default About; -->
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #20b2a6;
-  --color-background: #0f1418;
-  --color-card: #141a1f;
-  --color-border: #242b32;
-  --color-surface: #1a2329;
-  --color-text: #f0f2f5;
+  --color-primary: #2563EB;
+  --color-background: #0a0e1a;
+  --color-card: #10162a;
+  --color-border: #202b45;
+  --color-surface: #161e33;
+  --color-text: #eaf0fb;
 }
 
 @keyframes shine-sweep {
@@ -280,8 +280,8 @@ export default About; -->
 .animated-badge {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(32, 178, 166, 0.25);
-  box-shadow: 0 0 15px rgba(32, 178, 166, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.15);
 }
 
 .animated-badge::before {
@@ -392,7 +392,7 @@ export default About; -->
   inset: -8%;
   z-index: -2;
   border-radius: 50%;
-  background: rgba(32, 178, 166, 0.2);
+  background: rgba(37, 99, 235, 0.2);
 }
 
 .profile-gradient-ring {
@@ -403,12 +403,12 @@ export default About; -->
   padding: 2px;
   background: conic-gradient(
     from 0deg,
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
+    rgba(251, 191, 36, 0.18) 0%,
+    rgba(251, 191, 36, 0.9) 8%,
+    rgba(37, 99, 235, 0.96) 22%,
+    rgba(251, 191, 36, 0.88) 36%,
+    rgba(251, 191, 36, 0.18) 46%,
+    rgba(37, 99, 235, 0.08) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -450,7 +450,7 @@ export default About; -->
   border-radius: inherit;
   background: radial-gradient(
     circle 120px at var(--profile-glow-x) var(--profile-glow-y),
-    rgba(32, 178, 166, 0.16),
+    rgba(37, 99, 235, 0.16),
     rgba(240, 242, 245, 0.05) 34%,
     transparent 70%
   );
@@ -616,7 +616,7 @@ body {
   inset: -8%;
   z-index: -2;
   border-radius: 1rem;
-  background: rgba(32, 178, 166, 0.2);
+  background: rgba(37, 99, 235, 0.2);
 }
 
 .about-gradient-ring {
@@ -627,12 +627,12 @@ body {
   padding: 2px;
   background: conic-gradient(
     from var(--about-ring-angle),
-    rgba(34, 211, 238, 0.18) 0%,
-    rgba(34, 211, 238, 0.9) 8%,
-    rgba(20, 184, 166, 0.96) 22%,
-    rgba(52, 211, 153, 0.88) 36%,
-    rgba(34, 211, 238, 0.18) 46%,
-    rgba(20, 184, 166, 0.08) 100%
+    rgba(251, 191, 36, 0.18) 0%,
+    rgba(251, 191, 36, 0.9) 8%,
+    rgba(37, 99, 235, 0.96) 22%,
+    rgba(251, 191, 36, 0.88) 36%,
+    rgba(251, 191, 36, 0.18) 46%,
+    rgba(37, 99, 235, 0.08) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -675,7 +675,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     circle 120px at var(--about-glow-x) var(--about-glow-y),
-    rgba(32, 178, 166, 0.16),
+    rgba(37, 99, 235, 0.16),
     rgba(240, 242, 245, 0.05) 34%,
     transparent 70%
   );
