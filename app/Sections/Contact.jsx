@@ -1,7 +1,9 @@
+"use client";
 import SectionHeader from "../components/ui/SectionHeader";
 import LinkButton from "../components/ui/LinkButton";
 import { LuSend, LuMapPin, LuMail, LuPhone } from "react-icons/lu";
-
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 const contactInfo = [
   {
     icon: LuMail,
@@ -22,6 +24,46 @@ const contactInfo = [
   },
 ];
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(event.target);
+    formData.append("access_key", "e661f6ad-bdf0-4817-a010-3f9d657d296d");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      toast.success("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      toast.error("Erorr Submitting Form");
+    }
+    setLoading(false);
+  };
+  const Spinner = (
+    <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none">
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="3"
+        opacity="0.25"
+      />
+      <path
+        d="M22 12a10 10 0 0 1-10 10"
+        stroke="currentColor"
+        strokeWidth="3"
+      />
+    </svg>
+  );
+
   return (
     <div id="contact" className="py-24 relative overflow-hidden">
       <div
@@ -42,7 +84,10 @@ const Contact = () => {
               style={{ borderRadius: "inherit" }}
               aria-hidden="true"
             />
-            <form className="p-6 rounded-2xl bg-surface border border-border  space-y-5 relative z-10">
+            <form
+              onSubmit={onSubmit}
+              className="p-6 rounded-2xl bg-surface border border-border  space-y-5 relative z-10"
+            >
               <h3 className="text-lg font-semibold text-text ">
                 Send a message
               </h3>
@@ -51,6 +96,7 @@ const Contact = () => {
                   Name
                 </label>
                 <input
+                  name="name"
                   type="text"
                   required
                   placeholder="Your Names"
@@ -62,6 +108,7 @@ const Contact = () => {
                   Email
                 </label>
                 <input
+                  name="email"
                   type="email"
                   required
                   placeholder="Your Email"
@@ -73,6 +120,7 @@ const Contact = () => {
                   Message
                 </label>
                 <textarea
+                  name="message"
                   required
                   rows="5"
                   placeholder="Write your message here"
@@ -82,11 +130,12 @@ const Contact = () => {
               <LinkButton
                 as="button"
                 type="submit"
-                text="Send Message"
-                icon={LuSend}
+                text={loading ? "Sending..." : "Send Message"}
+                icon={loading ? Spinner : LuSend}
                 iconPosition="left"
                 rounded
                 fullWidth
+                disabled={loading}
               />
             </form>
           </div>
