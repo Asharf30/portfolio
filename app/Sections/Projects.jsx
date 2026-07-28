@@ -69,7 +69,13 @@ const Projects = () => {
         />
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
           {projects.map((project, index) => (
-            <ProjectsCard key={index} {...project} />
+            <div
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay={`${100 + index * 100}`}
+            >
+              <ProjectsCard {...project} />
+            </div>
           ))}
         </div>
       </div>

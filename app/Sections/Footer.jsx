@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="relative z-10 mx-auto w-[90%] max-w-6xl space-y-10 py-14">
         <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:items-start md:text-left">
           {/* Left */}
-          <div className="max-w-xs space-y-3">
+          <div data-aos="fade-up" className="max-w-xs space-y-3">
             <div className="flex justify-center md:justify-start">
               <Logo />
             </div>
@@ -45,7 +45,11 @@ const Footer = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="80"
+            className="flex items-center gap-4"
+          >
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -53,7 +57,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/50 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary"
+                className="social-icon-hover flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background/50 text-muted-foreground transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary"
               >
                 <Icon className="h-5 w-5" />
               </a>
@@ -61,8 +65,12 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px w-full bg-border" />
+        {/* Shimmer Divider */}
+        <div
+          data-aos="fade-in"
+          data-aos-delay="120"
+          className="section-divider-shimmer"
+        />
 
         {/* Copyright */}
         <p className="text-center text-sm text-muted-foreground">

@@ -26,7 +26,7 @@ const About = () => {
       />
       <div className="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Image / Visual */}
-        <div className="flex justify-center lg:justify-start">
+        <div data-aos="fade-right" className="flex justify-center lg:justify-start">
           <div className="about-float">
             <div className="about-image-frame relative w-85 h-85 md:w-120 md:h-120">
               <div
@@ -76,13 +76,13 @@ const About = () => {
         </div>
         {/* Text */}
         <div className="space-y-6">
-          <span className="animated-badge text-sm bg-primary/10 px-4 py-1.5 rounded-e-full inline-block">
+          <span data-aos="fade-up" className="animated-badge text-sm bg-primary/10 px-4 py-1.5 rounded-e-full inline-block">
             <span className="badge-text">About Me</span>
           </span>
-          <h2 className="text-3xl font-bold text-text leading-tight">
+          <h2 data-aos="fade-up" data-aos-delay="80" className="text-3xl font-bold text-text leading-tight">
             I build scalable and user-focused web applications{" "}
           </h2>
-          <p className="text-gray-400 max-w-xl ">
+          <p data-aos="fade-up" data-aos-delay="150" className="text-gray-400 max-w-xl ">
             I&apos;m a Front-End Developer specializing in React and Next.js,
             with a focus on crafting smooth, animated, and highly responsive
             user interfaces. I enjoy turning designs into interactive
@@ -90,13 +90,13 @@ const About = () => {
             Framer Motion — always aiming for clean code and pixel-perfect
             details.
           </p>
-          <p className="text-gray-400 max-w-xl ">
+          <p data-aos="fade-up" data-aos-delay="200" className="text-gray-400 max-w-xl ">
             I&apos;m a fourth-year Information Systems student who enjoys
             building real projects and exploring AI-assisted development tools.
             I&apos;m actively looking for internship opportunities to grow and
             contribute to real products.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 ">
+          <div data-aos="fade-up" data-aos-delay="300" className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 ">
             <div className="group p-4 rounded-xl bg-surface border border-border flex flex-col items-center justify-center text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)] hover:border-primary/40 cursor-pointer">
               <LuCode className="mx-auto mb-2 text-primary w-6 h-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
               <p className="text-text text-sm transition-colors duration-300 group-hover:text-white"> Clean Code</p>

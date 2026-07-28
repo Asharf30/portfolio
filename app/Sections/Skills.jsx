@@ -53,10 +53,11 @@ const Skills = () => {
           description="Technologies and tools I use to build modern web experiences."
         />
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
-          {skills.map((skill) => (
+        <div data-aos="fade-up" className="skills-grid mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+          {skills.map((skill, index) => (
             <div
               key={skill.name}
+              style={{ '--card-index': index }}
               className="skill-card group flex flex-col items-center justify-center rounded-xl border border-border bg-surface p-5 text-center transition-all duration-300 ease-out hover:-translate-y-2 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(32,178,166,0.15)]"
             >
               {/* Icon wrapper */}

@@ -20,7 +20,7 @@ const ProjectsCard = ({
 }: ProjectsCardProps) => {
   return (
     <div className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg">
-      <div className="relative h-60 overflow-hidden sm:h-64">
+      <div className="project-card-shimmer relative h-60 overflow-hidden sm:h-64">
         <Image
           src={image}
           alt={title}
@@ -40,7 +40,7 @@ const ProjectsCard = ({
           {tags?.map((tag, index) => (
             <span
               key={index}
-              className="rounded-md border border-border bg-primary/10 px-2.5 py-1 text-xs"
+              className="tag-pill rounded-md border border-border bg-primary/10 px-2.5 py-1 text-xs"
             >
               {tag}{" "}
             </span>

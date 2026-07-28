@@ -78,7 +78,7 @@ const Contact = () => {
           description="We' d love to hear from you! Whether you have questions, feedback, or just want to connect, reach out and let's make it happen."
         />
         <div className="grid  grid-cols-1 md:grid-cols-2 gap-10 ">
-          <div className="relative isolate rounded-2xl">
+          <div data-aos="fade-right" data-aos-delay="100" className="relative isolate rounded-2xl">
             <div
               className="gradient-ring gradient-ring-rotate"
               style={{ borderRadius: "inherit" }}
@@ -100,7 +100,7 @@ const Contact = () => {
                   type="text"
                   required
                   placeholder="Your Names"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border  text-text outline-none focus:border-primary transition "
+                  className="form-input-glow w-full px-4 py-2 rounded-lg bg-background border border-border  text-text outline-none focus:border-primary transition "
                 />
               </div>
               <div>
@@ -112,7 +112,7 @@ const Contact = () => {
                   type="email"
                   required
                   placeholder="Your Email"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border text-text outline-none focus:border-primary transition"
+                  className="form-input-glow w-full px-4 py-2 rounded-lg bg-background border border-border text-text outline-none focus:border-primary transition"
                 />
               </div>
               <div>
@@ -124,7 +124,7 @@ const Contact = () => {
                   required
                   rows="5"
                   placeholder="Write your message here"
-                  className="w-full px-4 py-2 rounded-lg bg-background border border-border text-text outline-none focus:border-primary transition resize-none"
+                  className="form-input-glow w-full px-4 py-2 rounded-lg bg-background border border-border text-text outline-none focus:border-primary transition resize-none"
                 />
               </div>
               <LinkButton
@@ -140,16 +140,18 @@ const Contact = () => {
             </form>
           </div>
           {/* right */}
-          <div className="p-2 ">
+          <div data-aos="fade-left" data-aos-delay="150" className="p-2 ">
             <h3 className="text-3xl font-semibold mb-6">Contact Information</h3>
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
                   href={info.href}
-                  className="flex items-center  gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
+                  data-aos="fade-up"
+                  data-aos-delay={`${200 + index * 80}`}
+                  className="contact-info-card flex items-center  gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex justify-center items-center group-hover:bg-primary/20 transition-colors">
+                  <div className="contact-icon-wrap w-12 h-12 rounded-xl bg-primary/10 flex justify-center items-center group-hover:bg-primary/20 transition-colors">
                     <info.icon className="text-primary w-5 h-5 " />
                   </div>
                   <div>
