@@ -41,7 +41,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div id="skills" className="relative py-24">
+    <div id="skills" className="relative py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Ambient glow */}
         <div className="absolute top-0 left-1/3 h-80 w-80 translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
