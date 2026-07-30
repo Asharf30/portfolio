@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import DotGrid from "../components/Hero/BgGlow"
+import TechStackOrbit from "../components/animations/TechStackOrbit";
 import { LuCode, LuDatabase, LuRocket } from "react-icons/lu";
 
 const About = () => {
@@ -45,26 +45,9 @@ const About = () => {
                   className="about-image-shell flex items-center justify-center"
                   onPointerMove={handleAboutPointerMove}
                 >
-                  {/* Abstract Decorative Visual (DotGrid) */}
+                  {/* Animated Tech Stack Orbit */}
                   <div className="w-[85%] h-[85%] relative rounded-2xl overflow-hidden bg-surface flex items-center justify-center z-10">
-                    {/* Ambient Glow */}
-                    <div className="absolute inset-0 bg-primary/15 blur-2xl rounded-full animate-ambient-drift" />
-
-                    {/* Dot Grid Layer */}
-                    <div className="inset-0 absolute opacity-60">
-                      <DotGrid
-                        dotSize={2}
-                        gap={10}
-                        baseColor="#2F293A"
-                        activeColor="#2563EB"
-                        proximity={80}
-                        shockRadius={150}
-                        shockStrength={4}
-                        resistance={600}
-                        returnDuration={1}
-                      />
-                    </div>
-
+                    <TechStackOrbit />
                     {/* Glass Overlay for Depth */}
                     <div className="absolute inset-0 bg-surface/20 backdrop-blur-[2px] border border-border/30 rounded-2xl pointer-events-none" />
                   </div>
