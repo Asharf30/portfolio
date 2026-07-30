@@ -48,7 +48,7 @@ const Projects = () => {
       githubURL: "https://github.com/Asharf30/prayer-times",
     },
     {
-      title: "Community Website",
+      title: " Brainwave Website",
       description:
         " A React + Tailwind landing page for a water damage/fire/mold restoration company, built from a PDF template with a shared design-token system and a Container wrapper It has four sections (Hero, Services, Contact, Reviews) with a responsive nav, GSAP animations, and a react-hook-form + zod validated contact form.",
       image: "/images/p4.png",
@@ -57,7 +57,7 @@ const Projects = () => {
       githubURL: "https://github.com/Asharf30/Brainwave",
     },
     {
-      title: "Brainwave Website",
+      title: "Community Website",
       description:
         "Brainwave is a modern, responsive landing page for an AI-powered chat app, built with React, Vite, and Tailwind CSS v4, featuring GSAP animations and React Router navigation. Developed using a Spec-Driven Development workflow with the Spec-Kit toolkit.",
       image: "/images/p6.png",
