@@ -11,6 +11,8 @@ import {
   SiRedux,
   SiAxios,
   SiGit,
+  SiGreensock,
+  SiVite,
 } from "react-icons/si";
 import {
   LuNetwork,
@@ -18,6 +20,8 @@ import {
   LuGauge,
   LuMonitorSmartphone,
   LuPanelsTopLeft,
+  LuBot,
+  LuFileCode,
 } from "react-icons/lu";
 
 const skills = [
@@ -29,14 +33,18 @@ const skills = [
   { name: "CSS", icons: [SiCss] },
   { name: "Tailwind CSS", icons: [SiTailwindcss] },
   { name: "Framer Motion", icons: [SiFramer] },
+  { name: "GSAP", icons: [SiGreensock] },
   { name: "Redux Toolkit", icons: [SiRedux] },
   { name: "Axios", icons: [SiAxios] },
   { name: "Git", icons: [SiGit] },
+  { name: "Vite", icons: [SiVite] },
   { name: "REST APIs", icons: [LuNetwork] },
   { name: "SEO Best Practices", icons: [LuSearchCheck] },
   { name: "Web Performance Optimization", icons: [LuGauge] },
   { name: "Responsive Design", icons: [LuMonitorSmartphone] },
   { name: "Cross-Browser Compatibility", icons: [LuPanelsTopLeft] },
+  { name: "AI-Assisted Development", icons: [LuBot] },
+  { name: "Spec-Driven Development", icons: [LuFileCode] },
 ];
 
 const Skills = () => {
