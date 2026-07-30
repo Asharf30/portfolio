@@ -34,7 +34,7 @@ const Projects = () => {
       description:
         "Zentry — An interactive landing page for a gaming metaverse, built with React, TypeScript, and Tailwind CSS. Features GSAP-powered animations, a bento grid layout, and lazy-loaded media for smooth performance.",
       image: "/images/p3.png",
-      tags: ["React", " Tailwind CSS", " GSAP"],
+      tags: ["React", " Tailwind CSS", " TypeScript"],
       liveURL: "https://awwards-winning-ashraf.vercel.app/",
       githubURL: "https://github.com/Asharf30/Awwards-winning",
     },
